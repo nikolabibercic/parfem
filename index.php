@@ -1,5 +1,16 @@
 <?php
     require 'objects.php';
 
-    $conn->connect();
+    require 'partials/header.php';
+
+    require 'partials/navbar.php';
+
+    require 'partials/footer.php';
+
+
 ?>
+
+
+    
+
+
