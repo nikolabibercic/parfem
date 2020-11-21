@@ -6,8 +6,6 @@
     require 'partials/navbar.php';
 
     require 'partials/footer.php';
-
-
 ?>
 
 

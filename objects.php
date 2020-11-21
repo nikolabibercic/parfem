@@ -3,7 +3,8 @@
 
     require 'classes/Connection.php';
     require 'classes/ConnectionBuilder.php';
+    require 'classes/User.php';
 
     $conn = new Connection();
-    //    $conn->connect();
+    $user = new User($conn->connect());
 ?>
