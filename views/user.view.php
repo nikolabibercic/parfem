@@ -5,18 +5,21 @@
 <?php require '../partials/navbar.php'; ?>
 
 <?php
-
-    // Provera da li user ima admin ili bloger prava
     $user_id = $_SESSION['user']->user_id;
+    // Provera da li je user ulogovan, ako nije salje na index.php stranicu
+    if(!$user_id){
+        header('Location: ../index.php');
+    }
 
-    if(!$user->checkUserAdmin($user_id) and !$user->checkUserBloger($user_id)){
-        header('Location: user.view.php'); 
+    // Ako je admin ili bloger ne moze na user.view stranicu, salje ga na admin.view
+    if($user->checkUserAdmin($user_id) or $user->checkUserBloger($user_id)){
+        header('Location: admin.view.php'); 
     }
 ?>
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container text-center">
-            <h1 class="display-4">Admin stranica</h1>
+            <h1 class="display-4">Korisnička stranica</h1>
     </div>
 </div>
 

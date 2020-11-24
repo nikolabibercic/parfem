@@ -30,6 +30,8 @@
                     <input type="password" name="password" placeholder="Password" class="form-control" required><br>
                 </div>
                 <button type="submit" name="logIn">Uloguj se</button>
+                <br><br>
+                <p>Ako nemaš nalog, registruj se ovde <a href="register.view.php">Register</a></p>
             </form>
         </div>    
         <div class="col-3">

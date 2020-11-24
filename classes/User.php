@@ -34,5 +34,31 @@
                 $this->userRegistered = false;
             }
         }
+
+        public function checkUserAdmin($user_id){
+            $sql = "select ur.user_id 
+                    from user_roles ur
+                    inner join roles r on r.role_id = ur.role_id
+                    where   ur.user_id = {$user_id} 
+                            and r.name = 'Admin' ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $checkUserAdmin = $query->fetchAll(PDO::FETCH_OBJ);
+            return $checkUserAdmin;
+        }
+
+        public function checkUserBloger($user_id){
+            $sql = "select ur.user_id 
+                    from user_roles ur
+                    inner join roles r on r.role_id = ur.role_id
+                    where   ur.user_id = {$user_id} 
+                            and r.name = 'Bloger' ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $checkUserBloger = $query->fetchAll(PDO::FETCH_OBJ);
+            return $checkUserBloger;
+        }
     }
 ?>
