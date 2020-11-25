@@ -27,7 +27,9 @@
         <div class="col-3">
         </div> 
         <div class="col-6">
-
+            <?php if($user->checkUserAdmin($user_id)): ?>
+                <button type="button" class="btn btn-info"><a href="admin.administration.products.view.php" style="color:white; text-decoration: none;">Administracija proizvoda</a></button>
+            <?php endif; ?>
         </div>    
         <div class="col-3">
         </div>  
