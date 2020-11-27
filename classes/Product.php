@@ -5,11 +5,9 @@
         public $categoryDeleted = null;
         public $brandInserted = null;
         public $brandDeleted = null;
-        public $typeInserted = null;
-        public $typeDeleted = null;
         public $categoryUpdated = null;
         public $brandUpdated = null;
-        public $typeUpdated = null;
+        public $productInserted = null;
 
         public function insertCategory($categoryName){
             $sql = "insert into categories values(null,'{$categoryName}')";
@@ -23,8 +21,8 @@
             }
         }
 
-        public function insertBrand($brandName,$categoryId){
-            $sql = "insert into brands values(null,'{$brandName}',{$categoryId} )";
+        public function insertBrand($brandName){
+            $sql = "insert into brands values(null,'{$brandName}' )";
             $query = $this->conn->prepare($sql);
             $checkInsert = $query->execute();
 
@@ -35,26 +33,9 @@
             }
         }
 
-        public function insertType($typeName,$brandId){
-            $sql = "insert into types values(null,'{$typeName}',{$brandId} )";
-            $query = $this->conn->prepare($sql);
-            $checkInsert = $query->execute();
-
-            if($checkInsert){
-                $this->typeInserted = true;
-            }else{
-                $this->typeInserted = false;
-            }
-        }
-
         public function deleteCategory($categoryId){
             $sql = "
-                    delete t
-                    from types t
-                    inner join brands b on b.brand_id = t.brand_id
-                    where b.category_id = {$categoryId};
-
-                    delete from brands where category_id = {$categoryId};
+                    delete from products where category_id = {$categoryId};
 
                     delete from categories where category_id = {$categoryId};
                     ";
@@ -70,7 +51,7 @@
 
         public function deleteBrand($brandId){
             $sql = "
-                    delete from types where brand_id = {$brandId};
+                    delete from products where brand_id = {$brandId};
         
                     delete from brands where brand_id = {$brandId};
                     ";
@@ -81,20 +62,6 @@
                 $this->brandDeleted = true;
             }else{
                 $this->brandDeleted = false;
-            }
-        }
-
-        public function deleteType($typeId){
-            $sql = "
-                    delete from types where type_id = {$typeId};
-                    ";
-            $query = $this->conn->prepare($sql);
-            $checkDelete = $query->execute();
-
-            if($checkDelete){
-                $this->typeDeleted = true;
-            }else{
-                $this->typeDeleted = false;
             }
         }
 
@@ -112,17 +79,6 @@
         public function selectAllBrands(){
             $sql = "select * 
                     from brands b
-                    ";
-
-            $query = $this->conn->prepare($sql);
-            $query->execute();
-            $result = $query->fetchAll(PDO::FETCH_OBJ);
-            return $result;
-        }
-
-        public function selectAllTypes(){
-            $sql = "select * 
-                    from types t
                     ";
 
             $query = $this->conn->prepare($sql);
@@ -159,19 +115,56 @@
             }
         }
 
-        public function updateType($typeId,$typeNameNew){
-            $sql = "
-                    update types set name='{$typeNameNew}' where type_id = {$typeId};
-                    ";
-            $query = $this->conn->prepare($sql);
-            $checkUpdate = $query->execute();
+        public function uploadPicture($picture){
+            $target_dir = "../images/";
+            $target_file = $target_dir . basename($picture["name"]) ;
+            $uploadOk = 1;
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-            if($checkUpdate){
-                $this->typeUpdated = true;
-            }else{
-                $this->typeUpdated = false;
+                // Check if file already exists
+                if (file_exists($target_file)) {
+                    //echo "Sorry, file already exists.";
+                $uploadOk = 0;
+                }
+            
+                // Check file size
+                if ($picture["size"] > 10000000) {
+                    //echo "Sorry, your file is too large.";
+                    $uploadOk = 0;
+                }
+            
+                // Allow certain file formats
+                if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {
+                    //echo "Sorry, only JPG, JPEG, & PNG files are allowed.";
+                $uploadOk = 0;
+                }
+            
+                // Check if $uploadOk is set to 0 by an error
+                if ($uploadOk == 0) {
+                    echo "Sorry, your file was not uploaded.";
+                // if everything is ok, try to upload file
+                } else {
+                if (move_uploaded_file($picture["tmp_name"], $target_file)) {
+                    echo "The file " . basename( $picture["name"] ) . " has been uploaded.";
+                    } else {
+                        echo "Sorry, there was an error uploading your file.";
+                    }
+                }
+            
+            return $target_file;
+            }         
+
+            public function insertProduct($brandId,$categoryId,$name,$size,$quantity,$purchasePrice,$sellingPrice,$otherInformation,$image1Path){
+                $sql = "insert into products values(null,{$brandId},{$categoryId},'{$name}',{$size},{$quantity},{$purchasePrice},{$sellingPrice},'{$otherInformation}','{$image1Path}' )";
+                $query = $this->conn->prepare($sql);
+                $checkInsert = $query->execute();
+    
+                if($checkInsert){
+                    $this->productInserted = true;
+                }else{
+                    $this->productInserted = false;
+                }
             }
-        }
 
     }
 ?>

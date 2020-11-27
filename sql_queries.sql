@@ -29,27 +29,22 @@ CREATE TABLE categories(
 
 CREATE TABLE brands(
 	brand_id int AUTO_INCREMENT PRIMARY KEY,
-	name varchar(50) character set utf8 not null,
-    category_id int not null,
-	FOREIGN KEY (category_id) REFERENCES categories(category_id)
-);
-
-CREATE TABLE types(
-	type_id int AUTO_INCREMENT PRIMARY KEY,
-	name varchar(50) character set utf8 not null unique,
-    brand_id int not null,
-	FOREIGN KEY (brand_id) REFERENCES brands(brand_id)
+	name varchar(50) character set utf8 not null
 );
 
 CREATE TABLE products(
 	product_id int AUTO_INCREMENT PRIMARY KEY,
-	type_id int not null,
+	brand_id int not null,
+    category_id int not null,
+    name varchar(50) character set utf8 not null unique,
     size int,
     quantity int,
     purchase_price int not null,
     selling_price int not null,
     other_information varchar(50) character set utf8,
-	FOREIGN KEY (type_id) REFERENCES types(type_id)
+    image varchar(50) character set utf8 not null unique,
+	FOREIGN KEY (brand_id) REFERENCES brands(brand_id),
+    FOREIGN KEY (category_id) REFERENCES categories(category_id)
 );
 
 insert into roles values(null,'Admin');

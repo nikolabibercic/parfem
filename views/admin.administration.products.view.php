@@ -70,25 +70,11 @@
                 <div class="alert alert-danger" role="alert">Izmena naziva brenda nije uspela!</div>
             <?php endif; ?>
 
-            <?php if(isset($_GET['typeInserted']) && $_GET['typeInserted']==true): ?>
-                <div class="alert alert-success" role="alert">Kreirao si tip</div>
+            <?php if(isset($_GET['productInserted']) && $_GET['productInserted']==true): ?>
+                <div class="alert alert-success" role="alert">Kreirao si proizvod</div>
             <?php endif; ?>
-            <?php if(isset($_GET['typeInserted']) && $_GET['typeInserted']==false): ?>
-                <div class="alert alert-danger" role="alert">Kreiranje tipa nije uspelo!</div>
-            <?php endif; ?>
-
-            <?php if(isset($_GET['typeDeleted']) && $_GET['typeDeleted']==true): ?>
-                <div class="alert alert-success" role="alert">Obrisao si tip</div>
-            <?php endif; ?>
-            <?php if(isset($_GET['typeDeleted']) && $_GET['typeDeleted']==false): ?>
-                <div class="alert alert-danger" role="alert">Brisanje tipa nije uspelo!</div>
-            <?php endif; ?>
-
-            <?php if(isset($_GET['typeUpdated']) && $_GET['typeUpdated']==true): ?>
-                <div class="alert alert-success" role="alert">Izmenio si naziv tipa</div>
-            <?php endif; ?>
-            <?php if(isset($_GET['typeUpdated']) && $_GET['typeUpdated']==false): ?>
-                <div class="alert alert-danger" role="alert">Izmena naziva tipa nije uspela!</div>
+            <?php if(isset($_GET['productInserted']) && $_GET['productInserted']==false): ?>
+                <div class="alert alert-danger" role="alert">Kreiranje proizvoda nije uspelo!</div>
             <?php endif; ?>
 
             <br>
@@ -141,12 +127,6 @@
             <form action="../files/insert.brand.php" method="POST">
                 <div class="form-group">
                     <input type="text" name="brandName" placeholder="Naziv brenda" class="form-control" required><br>
-                    <p>Kategorija:</p>
-                    <select name="categoryId" id="">
-                        <?php  $result = $product->selectAllCategories(); foreach($result as $x):  ?>
-                            <option value=<?php echo $x->category_id; ?> class="form-control"><?php echo $x->name; ?></option>
-                        <?php endforeach; ?>
-                    </select><br><br>
                 </div>            
                 <button class="btn btn-success" type="submit" name="insertBrand">Kreiraj brend</button>
             </form>
@@ -186,52 +166,44 @@
                         
             <hr style="height:2px; background-color:black;"><br>
 
-            <h5>Forma za kreiranje tipa</h5><br>          
-            <form action="../files/insert.type.php" method="POST">
+            <h5>Forma za kreiranje proizvoda</h5><br>          
+            <form action="../files/insert.product.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input type="text" name="typeName" placeholder="Naziv tipa" class="form-control" required><br>
-                    <p>Brend:</p>
+
+                    Brend:<br><br>
                     <select name="brandId" id="">
                         <?php  $result = $product->selectAllBrands(); foreach($result as $x):  ?>
                             <option value=<?php echo $x->brand_id; ?> class="form-control"><?php echo $x->name; ?></option>
                         <?php endforeach; ?>
                     </select><br><br>
-                </div>            
-                <button class="btn btn-success" type="submit" name="insertType">Kreiraj tip</button>
-            </form>
-            <br>
-                        
-            <hr style="height:2px; background-color:black;"><br>
 
-            <h5>Forma za brisanje tipa</h5><br>          
-            <form action="../files/delete.type.php" method="POST">
-                <div class="form-group">
-                    <select name="typeId" id="">
-                        <?php  $result = $product->selectAllTypes(); foreach($result as $x):  ?>
-                            <option value=<?php echo $x->type_id; ?> class="form-control"><?php echo $x->name; ?></option>
+                    Kategorija:<br><br>
+                    <select name="categoryId" id="">
+                        <?php  $result = $product->selectAllCategories(); foreach($result as $x):  ?>
+                            <option value=<?php echo $x->category_id; ?> class="form-control"><?php echo $x->name; ?></option>
                         <?php endforeach; ?>
                     </select><br><br>
-                </div>            
-                <button class="btn btn-danger" type="submit" name="deleteType">Obriši tip</button>
-            </form>
-            <br>
-                        
-            <hr style="height:2px; background-color:black;"><br>
 
-            <h5>Forma za izmenu tipa</h5><br>          
-            <form action="../files/update.type.php" method="POST">
-                <div class="form-group">
-                    <select name="typeId" id="">
-                        <?php  $result = $product->selectAllTypes(); foreach($result as $x):  ?>
-                            <option value=<?php echo $x->type_id; ?> class="form-control"><?php echo $x->name; ?></option>
-                        <?php endforeach; ?>
-                    </select><br><br>
-                    <input type="text" name="typeNameNew" placeholder="Novi naziv tipa" class="form-control" required><br>
+                    <input type="text" name="name" placeholder="Naziv" class="form-control" required><br>
+
+                    <input type="number" name="size" placeholder="Veličina" class="form-control" required><br>
+
+                    <input type="number" name="quantity" placeholder="Količina" class="form-control" required><br>
+
+                    <input type="number" name="purchasePrice" placeholder="Kupovna cena" class="form-control" required><br>
+
+                    <input type="number" name="sellingPrice" placeholder="Prodajna cena" class="form-control" required><br>
+
+                    <input type="text" name="otherInformation" placeholder="Ostalo" class="form-control" ><br>
+
+                    Ubaci sliku:<br><br>
+                    <input type="file" name="image1" id="image1" class="form-control"><br>
+
                 </div>            
-                <button class="btn btn-warning" type="submit" name="updateType">Izmeni naziv tipa</button>
+                <button class="btn btn-success" type="submit" name="insertBrand">Kreiraj proizvod</button>
             </form>
             <br>
-                        
+
             <hr style="height:2px; background-color:black;"><br>
 
         </div>    
