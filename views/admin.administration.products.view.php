@@ -184,7 +184,7 @@
                         <?php endforeach; ?>
                     </select><br><br>
 
-                    <input type="text" name="name" placeholder="Naziv" class="form-control" required><br>
+                    <input type="text" name="name" placeholder="Naziv proizvoda" class="form-control" required><br>
 
                     <input type="number" name="size" placeholder="Veličina" class="form-control" required><br>
 

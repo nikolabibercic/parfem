@@ -87,6 +87,52 @@
             return $result;
         }
 
+        public function selectAllProducts($search,$categoryId,$brandId){
+            $sql = "select  p.product_id
+                            ,p.name as perfume_name
+                            ,p.size
+                            ,p.quantity
+                            ,p.purchase_price
+                            ,p.selling_price
+                            ,p.image
+                            ,c.name as category_name
+                            ,b.name as brand_name
+                    from products p
+                    inner join categories c on c.category_id = p.category_id
+                    inner join brands b on b.brand_id = p.brand_id
+                    where   (p.category_id = {$categoryId} or $categoryId = 0)
+                            and (p.brand_id = {$brandId} or $brandId = 0)
+                            and (p.name like '%$search%' or c.name like '%$search%' or b.name like '%$search%');
+                    ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            return $result;
+        }
+
+        public function selectTop10Products(){
+            $sql = "select  p.product_id
+                            ,p.name as perfume_name
+                            ,p.size
+                            ,p.quantity
+                            ,p.purchase_price
+                            ,p.selling_price
+                            ,p.image
+                            ,c.name as category_name
+                            ,b.name as brand_name
+                    from products p
+                    inner join categories c on c.category_id = p.category_id
+                    inner join brands b on b.brand_id = p.brand_id
+                    limit 10;
+                    ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            return $result;
+        }
+
         public function updateCategory($categoryId,$categoryNameNew){
             $sql = "
                     update categories set name='{$categoryNameNew}' where category_id = {$categoryId};
@@ -151,7 +197,8 @@
                     }
                 }
             
-            return $target_file;
+            //return $target_file;
+            return '/parfem/images/'.$picture["name"];
             }         
 
             public function insertProduct($brandId,$categoryId,$name,$size,$quantity,$purchasePrice,$sellingPrice,$otherInformation,$image1Path){
