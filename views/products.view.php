@@ -15,12 +15,30 @@
 
 <?php require '../partials/navbar.php'; ?>
 
-<?php
-    if(!$products){
-        header('Location: ../index.php');    
-    }
-?>
+<?php require '../partials/index.jumbotron.php'; ?>
 
+<br>
+
+<?php require '../views/products.search.view.php'; ?>
+
+<br>
+
+<?php if(!$products): ?>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+            </div> 
+            <div class="col-6">
+                <div class="alert alert-danger" role="alert">Nisu pronađeni parfemi po zadatim parametrima!</div>
+            </div>    
+            <div class="col-3">
+            </div>  
+        </div>
+    </div>
+<?php endif; ?>
+
+<br>
 <br>
 
 <div class="container">

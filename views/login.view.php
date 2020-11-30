@@ -13,7 +13,7 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container text-center">
-            <h1 class="display-4">Logovanje</h1>
+            <h1 class="display-4">Prijava</h1>
     </div>
 </div>
 
@@ -29,9 +29,9 @@
                     <input type="email" name="email" placeholder="Email" class="form-control" required><br>
                     <input type="password" name="password" placeholder="Password" class="form-control" required><br>
                 </div>
-                <button type="submit" name="logIn">Uloguj se</button>
+                <button type="submit" name="logIn">Prijavi se</button>
                 <br><br>
-                <p>Ako nemaš nalog, registruj se ovde <a href="register.view.php">Register</a></p>
+                <p>Ako nemaš nalog, registruj se ovde <a href="register.view.php">Registracija</a></p>
             </form>
         </div>    
         <div class="col-3">
