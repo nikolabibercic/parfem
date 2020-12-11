@@ -202,7 +202,7 @@
             }         
 
             public function insertProduct($brandId,$categoryId,$name,$size,$quantity,$purchasePrice,$sellingPrice,$otherInformation,$image1Path){
-                $sql = "insert into products values(null,{$brandId},{$categoryId},'{$name}',{$size},{$quantity},{$purchasePrice},{$sellingPrice},'{$otherInformation}','{$image1Path}' )";
+                $sql = "insert into products values(null,{$brandId},{$categoryId},'{$name}',{$size},{$quantity},{$purchasePrice},{$sellingPrice},'{$otherInformation}','{$image1Path}',1 )";
                 $query = $this->conn->prepare($sql);
                 $checkInsert = $query->execute();
     

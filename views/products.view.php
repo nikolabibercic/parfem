@@ -36,10 +36,10 @@
             </div>  
         </div>
     </div>
+    <br>
+    <br>
 <?php endif; ?>
 
-<br>
-<br>
 
 <div class="container">
     <div class="row">

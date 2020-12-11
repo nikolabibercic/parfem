@@ -27,9 +27,15 @@
             $sql = "insert into users values(null,'{$name}','{$email}','{$password}')";
             $query = $this->conn->prepare($sql);
             $checkInsert = $query->execute();
+            $last_id = $this->conn->lastInsertId();//ako su podaci insertovani, uzima ID da bi ga insertovao u tabelu carts
 
             if($checkInsert){
                 $this->userRegistered = true;
+
+                $sql2 = "insert into carts values(null,{$last_id})";
+                $query2 = $this->conn->prepare($sql2);
+                $query2->execute();
+
             }else{
                 $this->userRegistered = false;
             }
