@@ -5,8 +5,10 @@
     require 'classes/ConnectionBuilder.php';
     require 'classes/User.php';
     require 'classes/Product.php';
+    require 'classes/Cart.php';
 
     $conn = new Connection();
     $user = new User($conn->connect());
     $product = new Product($conn->connect());
+    $cart = new Cart($conn->connect());
 ?>

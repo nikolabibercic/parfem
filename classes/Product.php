@@ -89,7 +89,7 @@
 
         public function selectAllProducts($search,$categoryId,$brandId){
             $sql = "select  p.product_id
-                            ,p.name as perfume_name
+                            ,p.name as product_name
                             ,p.size
                             ,p.quantity
                             ,p.purchase_price
@@ -113,7 +113,7 @@
 
         public function selectTop10Products(){
             $sql = "select  p.product_id
-                            ,p.name as perfume_name
+                            ,p.name as product_name
                             ,p.size
                             ,p.quantity
                             ,p.purchase_price

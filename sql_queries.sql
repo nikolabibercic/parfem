@@ -60,19 +60,38 @@ CREATE TABLE carts(
 	FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-CREATE TABLE user_cart_statuses(
-	user_cart_status_id int AUTO_INCREMENT PRIMARY KEY,
-	user_cart_status varchar(50) character set utf8 not null
+CREATE TABLE cart_item_statuses(
+	cart_item_status_id int AUTO_INCREMENT PRIMARY KEY,
+	cart_item_status varchar(50) character set utf8 not null
 );
 
-CREATE TABLE user_carts(
-	user_cart_id int AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE cart_items(
+	cart_item_id int AUTO_INCREMENT PRIMARY KEY,
 	cart_id int not null,
-	product_id int not null,
-	user_cart_status_id int not null,
+	product_id int,
+	product_name varchar(50) character set utf8,
+	brand_id int,
+	brand_name varchar(50) character set utf8,
+    category_id int,
+	category_name varchar(50) character set utf8,
+    size int,
+    purchase_price int,
+    selling_price int,
+    other_information varchar(50) character set utf8,
+    image varchar(50) character set utf8,
+	cart_item_status_id int not null,
 	FOREIGN KEY (cart_id) REFERENCES carts(cart_id),
 	FOREIGN KEY (product_id) REFERENCES products(product_id),
-	FOREIGN KEY (user_cart_status_id) REFERENCES user_cart_statuses(user_cart_status_id)
+	FOREIGN KEY (brand_id) REFERENCES brands(brand_id),
+    FOREIGN KEY (category_id) REFERENCES categories(category_id),
+	FOREIGN KEY (cart_item_status_id) REFERENCES cart_item_statuses(cart_item_status_id)
+);
+
+CREATE TABLE orders(
+	order_id int AUTO_INCREMENT PRIMARY KEY,
+	cart_item_id int not null,
+	
+	FOREIGN KEY (cart_item_id) REFERENCES cart_items(cart_item_id)
 );
 
 insert into roles values(null,'Admin');
@@ -84,8 +103,9 @@ insert into user_roles values(null,1,1);
 insert into product_statuses values(null,'Active');
 insert into product_statuses values(null,'Inactive');
 
-insert into user_cart_statuses values(null,'In cart');
-insert into user_cart_statuses values(null,'Ordered');
+insert into cart_item_statuses values(null,'In cart');
+insert into cart_item_statuses values(null,'Ordered');
+insert into cart_item_statuses values(null,'Disabled');
 
 insert into categories values(null,'Muški parfemi');
 insert into categories values(null,'Ženski parfemi');
