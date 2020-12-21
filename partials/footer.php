@@ -24,6 +24,7 @@
         <div class="row">
             <div class="col-12 text-center">
                 <div>
+                    <br>
                     <p>&copy; All rights reserved</p>
                 </div>
             </div>    

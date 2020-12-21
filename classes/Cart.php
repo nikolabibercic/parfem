@@ -53,5 +53,33 @@
             }
         }
 
+        public function selectAllCartItems($userId){
+            $sql = "select ci.* 
+                    from cart_items ci
+                    inner join carts c on c.cart_id = ci.cart_id
+                    where ci.cart_item_status_id = 1 
+                        and c.user_id = {$userId}
+                    ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            return $result;
+        }
+
+        public function CartItemsSum($userId){
+            $sql = "select sum(ci.selling_price) as Price
+                    from cart_items ci
+                    inner join carts c on c.cart_id = ci.cart_id
+                    where ci.cart_item_status_id = 1 
+                        and c.user_id = {$userId}
+                    ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            return $result;
+        }
+
     }
 ?>

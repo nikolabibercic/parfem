@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item"><a href="" class="nav-link" id="navLink1" style="color:white;">Korpa</a></li>
+                <li class="nav-item"><a href="/parfem/views/cart.view.php" class="nav-link" id="navLink1" style="color:white;">Korpa</a></li>
 
                 <?php if(isset($_SESSION['user'])): ?>        
                     <li class="nav-item">
