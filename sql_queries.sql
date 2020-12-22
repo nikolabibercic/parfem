@@ -98,7 +98,9 @@ CREATE TABLE transactions(
 	transaction_id int AUTO_INCREMENT PRIMARY KEY,
 	user_id int not null,
 	transaction_date datetime not null,
-	FOREIGN KEY (user_id) REFERENCES users(user_id)
+	transaction_status_id int not null,
+	FOREIGN KEY (user_id) REFERENCES users(user_id),
+	FOREIGN KEY (transaction_status_id) REFERENCES transaction_statuses(transaction_status_id)
 );
 
 CREATE TABLE cart_items_transactions(

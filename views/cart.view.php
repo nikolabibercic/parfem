@@ -31,44 +31,56 @@
 
 <div class="container">
     <div class="row">
+        <?php if(!$items): ?>
+            <div class="col-12">
+                <h1 class="text-center">Korpa je prazna</h1>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        <?php else: ?>
+            <div class="col-12">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                        <!--<th>Kategorija</th>-->
+                            <th>Parfem</th>
+                            <th>ML</th>
+                            <th>Cena</th>
+                        </tr>
+                    </thead>
 
-        <div class="col-12">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                    <!--<th>Kategorija</th>-->
-                        <th>Parfem</th>
-                        <th>ML</th>
-                        <th>Cena</th>
-                    </tr>
-                </thead>
+                    <tbody>
+                    <?php foreach($items as $i): ?>
+                        <tr>
+                            <!--<td><?php // echo $i->category_name ?></td>-->
+                            <td><?php echo $i->brand_name.' '.$i->product_name ?></td>
+                            <td><?php echo $i->size ?></td>
+                            <td><?php echo $i->selling_price ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>    
 
-                <tbody>
-                <?php foreach($items as $i): ?>
-                    <tr>
-                        <!--<td><?php // echo $i->category_name ?></td>-->
-                        <td><?php echo $i->brand_name.' '.$i->product_name ?></td>
-                        <td><?php echo $i->size ?></td>
-                        <td><?php echo $i->selling_price ?></td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>    
-
-                <tfoot>
-                    <tr>
-                        <!--<td></td>-->
-                        <td></td>
-                        <td><b>Ukupno</b></td>
-                        <td><?php echo '<b>'.$CartItemsSum[0]->Price.' EUR</b>' ?></td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>    
-        
-        <div class="col-12">
-            <div class="btn btn-success float-right">Poruči parfeme</div>
-        </div>
-
+                    <tfoot>
+                        <tr>
+                            <!--<td></td>-->
+                            <td></td>
+                            <td><b>Ukupno</b></td>
+                            <td><?php echo '<b>'.$CartItemsSum[0]->Price.' EUR</b>' ?></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>    
+            
+            <div class="col-12">
+                <a class="btn btn-success float-right" href="../files/order.details.php">Poruči parfeme</a>
+            </div>
+        <?php endif; ?>
     </div>
     <br>
     <br>

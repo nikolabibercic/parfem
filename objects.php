@@ -6,9 +6,11 @@
     require 'classes/User.php';
     require 'classes/Product.php';
     require 'classes/Cart.php';
+    require 'classes/Transaction.php';
 
     $conn = new Connection();
     $user = new User($conn->connect());
     $product = new Product($conn->connect());
     $cart = new Cart($conn->connect());
+    $tran = new Transaction($conn->connect());
 ?>
