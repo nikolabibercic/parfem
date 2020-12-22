@@ -5,7 +5,7 @@
         <div class="card-body">
             <h5 class="card-title"><?php echo $p->brand_name.' '.$p->product_name; ?></h5>
             <p class="card-text"><?php echo 'Cena: <b>'.$p->selling_price.' EUR </b><br><b>'.$p->size.' ML</b><br>'.$p->category_name; ?></p>
-            <a href="/parfem/files/cart.php?productId=<?php echo $p->product_id ?>" class="btn btn-primary">Ubaci u korpu</a>
+            <a href="/shop/files/cart.php?productId=<?php echo $p->product_id ?>" class="btn btn-primary">Ubaci u korpu</a>
         </div>
     </div>
     <br>

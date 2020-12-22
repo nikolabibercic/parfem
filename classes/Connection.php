@@ -2,7 +2,7 @@
     class Connection{
         
         public $host='localhost';
-        public $dbname='perfumes';
+        public $dbname='shop';
         public $username='root';
         public $password='';
 

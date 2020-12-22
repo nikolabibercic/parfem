@@ -1,4 +1,4 @@
-CREATE DATABASE perfumes 
+CREATE DATABASE shop
 CHARACTER SET utf8 
 COLLATE utf8_unicode_ci;
 
@@ -56,7 +56,7 @@ CREATE TABLE products(
 
 CREATE TABLE carts(
 	cart_id int AUTO_INCREMENT PRIMARY KEY,
-	user_id int not null,
+	user_id int not null unique,
 	FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
@@ -80,6 +80,7 @@ CREATE TABLE cart_items(
     other_information varchar(50) character set utf8,
     image varchar(50) character set utf8,
 	cart_item_status_id int not null,
+	import_date datetime not null,
 	FOREIGN KEY (cart_id) REFERENCES carts(cart_id),
 	FOREIGN KEY (product_id) REFERENCES products(product_id),
 	FOREIGN KEY (brand_id) REFERENCES brands(brand_id),
@@ -87,11 +88,45 @@ CREATE TABLE cart_items(
 	FOREIGN KEY (cart_item_status_id) REFERENCES cart_item_statuses(cart_item_status_id)
 );
 
+CREATE TABLE transaction_statuses(
+	transaction_status_id int AUTO_INCREMENT PRIMARY KEY,
+	transaction_status varchar(50) character set utf8 not null
+);
+
+
+CREATE TABLE transactions(
+	transaction_id int AUTO_INCREMENT PRIMARY KEY,
+	user_id int not null,
+	transaction_date datetime not null,
+	FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+CREATE TABLE cart_items_transactions(
+	cart_item_transaction int AUTO_INCREMENT PRIMARY KEY,
+	transaction_id int not null,
+	cart_item_id int not null,
+	cart_item_transaction_date datetime not null,
+	FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id),
+	FOREIGN KEY (cart_item_id) REFERENCES cart_items(cart_item_id)
+);
+
+CREATE TABLE delivery_methods(
+	delivery_method_id int AUTO_INCREMENT PRIMARY KEY,
+	delivery_method varchar(50) character set utf8 not null
+);
+
 CREATE TABLE orders(
 	order_id int AUTO_INCREMENT PRIMARY KEY,
-	cart_item_id int not null,
-	
-	FOREIGN KEY (cart_item_id) REFERENCES cart_items(cart_item_id)
+	transaction_id int not null,
+	user_name varchar(50) character set utf8,
+	user_surname varchar(50) character set utf8,
+	user_address varchar(50) character set utf8,
+	user_zip_code varchar(50) character set utf8,
+	user_city varchar(50) character set utf8,
+	delivery_method_id int not null,
+	order_date datetime not null,
+	FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id),
+	FOREIGN KEY (delivery_method_id) REFERENCES delivery_methods(delivery_method_id)
 );
 
 insert into roles values(null,'Admin');
@@ -112,3 +147,9 @@ insert into categories values(null,'Ženski parfemi');
 
 insert into brands values(null,'Armani');
 insert into brands values(null,'Bulgari');
+
+insert into delivery_methods values(null,'Post Express');
+insert into delivery_methods values(null,'Lično preuzimanje');
+
+insert into transaction_statuses values(null,'Incomplete');
+insert into transaction_statuses values(null,'Complete');

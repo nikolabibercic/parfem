@@ -198,7 +198,7 @@
                 }
             
             //return $target_file;
-            return '/parfem/images/'.$picture["name"];
+            return '/shop/images/'.$picture["name"];
             }         
 
             public function insertProduct($brandId,$categoryId,$name,$size,$quantity,$purchasePrice,$sellingPrice,$otherInformation,$image1Path){

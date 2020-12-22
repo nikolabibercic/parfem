@@ -18,7 +18,8 @@
                     selling_price,
                     other_information,
                     image,
-                    cart_item_status_id
+                    cart_item_status_id,
+                    import_date
                 )
                 select
                     (
@@ -37,7 +38,8 @@
                     p.selling_price,
                     p.other_information,
                     p.image,
-                    1 cart_item_status_id
+                    1 cart_item_status_id,
+                    CURRENT_TIMESTAMP() 
                 from products p
                 inner join brands b on b.brand_id = p.brand_id
                 inner join categories c on c.category_id = p.category_id
@@ -59,6 +61,7 @@
                     inner join carts c on c.cart_id = ci.cart_id
                     where ci.cart_item_status_id = 1 
                         and c.user_id = {$userId}
+                    order by ci.import_date
                     ";
 
             $query = $this->conn->prepare($sql);

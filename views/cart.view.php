@@ -64,8 +64,14 @@
                 </tfoot>
             </table>
         </div>    
+        
+        <div class="col-12">
+            <div class="btn btn-success float-right">Poruči parfeme</div>
+        </div>
 
     </div>
+    <br>
+    <br>
 </div>
 
 <?php require '../partials/footer.php'; ?>

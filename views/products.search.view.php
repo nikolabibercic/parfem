@@ -4,8 +4,8 @@
         </div> 
         <div class="col-6">
             <br>
-            <form action="/parfem/views/products.view.php" method="GET">
-            
+            <form action="/shop/views/products.view.php" method="GET">
+
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Pretraga:</label>
                     <input type="text" name="search" placeholder="Pretraži sajt..." class="form-control" > <br>       
