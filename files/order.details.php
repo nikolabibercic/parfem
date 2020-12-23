@@ -6,7 +6,7 @@
         header("Location: ../views/login.view.php");
     }else{
         $userId = $_SESSION['user']->user_id;
-        $tran->insertTransaction($userId);
+        $tran->insertTransaction($userId); //Insert transakcije
 
         header("Location: ../views/order.details.view.php");
     }
