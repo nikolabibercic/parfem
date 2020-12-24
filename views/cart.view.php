@@ -34,6 +34,8 @@
         <?php if(!$items): ?>
             <div class="col-12">
                 <h1 class="text-center">Korpa je prazna</h1>
+                <br>
+                <h4 class="text-center">Pretraži parfeme <a href="../index.php">ovde</a></h4>
             </div>
             <br>
             <br>
@@ -76,8 +78,11 @@
                     </tfoot>
                 </table>
             </div>    
-            
+
             <div class="col-12">
+            <br>
+            <br>
+                <h5 class="text-center float-left">Ubaci još parfema u korpu <a href="../index.php">ovde</a></h5>
                 <a class="btn btn-success float-right" href="../files/order.details.php">Poruči parfeme</a>
             </div>
         <?php endif; ?>

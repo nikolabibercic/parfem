@@ -24,8 +24,8 @@
 
         $tran->updateUserCartItemStatus($userId); //ovde radim update statusa u tabeli cart_items u Ordered
 
-        $order->insertOrder($maxUserTranId[0]->transaction_id,$userName,$userSurname,$userAddress,$userZipCode,$userCity,$deliveryMethodId); //u tabelu orders imsertujem podatke o posiljci i transakciji
+        $order->insertOrder($maxUserTranId[0]->transaction_id,$userName,$userSurname,$userAddress,$userZipCode,$userCity,$deliveryMethodId); //u tabelu orders insertujem podatke o posiljci i transakciji
 
-        //header("Location: ../views/cart.view.php?itemInserted={$cart->itemInserted}");
+        header("Location: ../views/successfully.ordered.view.php?orderInserted={$order->orderInserted}");
     }
 ?>

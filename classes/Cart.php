@@ -84,5 +84,19 @@
             return $result;
         }
 
+        public function cartItemsCount($userId){
+            $sql = "select count(ci.cart_id) as CountItems
+                    from cart_items ci
+                    inner join carts c on c.cart_id = ci.cart_id
+                    where ci.cart_item_status_id = 1 
+                        and c.user_id = {$userId}
+                    ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            return $result;
+        }
+
     }
 ?>

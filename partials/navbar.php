@@ -8,7 +8,19 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item"><a href="/shop/views/cart.view.php" class="nav-link" id="navLink1" style="color:white;">Korpa</a></li>
+                <li class="nav-item">
+                    <a href="/shop/views/cart.view.php" class="nav-link" id="navLink1" style="color:white;">
+                        <?php
+                            if(!isset($_SESSION['user'])){
+                                echo 'Korpa';
+                            }else{
+                                $userId = $_SESSION['user']->user_id;
+                                $cartItemsCount = $cart->cartItemsCount($userId);
+                                echo '<b>'.$cartItemsCount[0]->CountItems.'</b> Korpa';
+                            }
+                        ?>
+                    </a>
+                </li>
 
                 <?php if(isset($_SESSION['user'])): ?>        
                     <li class="nav-item">
