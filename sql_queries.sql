@@ -125,6 +125,7 @@ CREATE TABLE orders(
 	user_address varchar(50) character set utf8,
 	user_zip_code varchar(50) character set utf8,
 	user_city varchar(50) character set utf8,
+	user_municipality varchar(50) character set utf8,
 	delivery_method_id int not null,
 	order_date datetime not null,
 	FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id),

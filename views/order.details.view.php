@@ -43,6 +43,7 @@
                     <input type="text" name="userAddress" placeholder="Ulica i broj" class="form-control" required><br>       
                     <input type="text" name="userZipCode" placeholder="Poštanski broj" class="form-control" required><br> 
                     <input type="text" name="userCity" placeholder="Grad" class="form-control" required><br> 
+                    <input type="text" name="userMunicipality" placeholder="Opština" class="form-control" required><br> 
 
                     <label for="exampleFormControlSelect1">Način dostave:</label>
                     <select name="deliveryMethodId" class="form-control" id="exampleFormControlSelect1" >

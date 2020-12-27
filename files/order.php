@@ -7,6 +7,7 @@
     $userZipCode = $_POST['userZipCode'];
     $userCity = $_POST['userCity'];
     $deliveryMethodId = $_POST['deliveryMethodId'];
+    $userMunicipality = $_POST['userMunicipality'];
 
     
 
@@ -24,7 +25,7 @@
 
         $tran->updateUserCartItemStatus($userId); //ovde radim update statusa u tabeli cart_items u Ordered
 
-        $order->insertOrder($maxUserTranId[0]->transaction_id,$userName,$userSurname,$userAddress,$userZipCode,$userCity,$deliveryMethodId); //u tabelu orders insertujem podatke o posiljci i transakciji
+        $order->insertOrder($maxUserTranId[0]->transaction_id,$userName,$userSurname,$userAddress,$userZipCode,$userCity,$userMunicipality,$deliveryMethodId); //u tabelu orders insertujem podatke o posiljci i transakciji
 
         header("Location: ../views/successfully.ordered.view.php?orderInserted={$order->orderInserted}");
     }

@@ -83,7 +83,16 @@
             <br>
             <br>
                 <h5 class="text-center float-left">Ubaci još parfema u korpu <a href="../index.php">ovde</a></h5>
-                <a class="btn btn-success float-right" href="../files/order.details.php">Poruči parfeme</a>
+                <a class="btn btn-success float-right" href="../files/order.details.php">
+                    <?php 
+                            $cartItemsCount = $cart->cartItemsCount($userId);
+                            if($cartItemsCount[0]->CountItems > 1){
+                                echo 'Poruči parfeme';
+                            }else{
+                                echo 'Poruči parfem';
+                            };
+                    ?>
+                </a>
             </div>
         <?php endif; ?>
     </div>
