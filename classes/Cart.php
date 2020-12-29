@@ -2,6 +2,26 @@
     class Cart extends ConnectionBuilder{
 
         public $itemInserted = null;
+        public $cartItemDisabled = null;
+
+        public function cartItemDisabled($cartItemId,$userId){
+            $sql = "
+                    update cart_items 
+                    set cart_item_status_id=3 
+                    where cart_id = (select c.cart_id
+                                    from carts c
+                                    where c.user_id = {$userId} )
+                          and cart_item_id = {$cartItemId};
+                    ";
+            $query = $this->conn->prepare($sql);
+            $checkUpdate = $query->execute();
+
+            if($checkUpdate){
+                $this->cartItemDisabled = true;
+            }else{
+                $this->cartItemDisabled = false;
+            }
+        }
 
         public function insertItemIntoCart($productId,$userId){
             $sql = "

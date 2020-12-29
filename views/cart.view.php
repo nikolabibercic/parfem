@@ -54,6 +54,7 @@
                             <th>Parfem</th>
                             <th>ML</th>
                             <th>Cena</th>
+                            <th></th>
                         </tr>
                     </thead>
 
@@ -64,6 +65,7 @@
                             <td><?php echo $i->brand_name.' '.$i->product_name ?></td>
                             <td><?php echo $i->size ?></td>
                             <td><?php echo $i->selling_price ?></td>
+                            <td><a class="btn btn-danger btn-sm" href="../files/cart.item.disabled.php?cartItemId=<?php echo $i->cart_item_id ?>">Izbaci</a></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>    
@@ -74,6 +76,7 @@
                             <td></td>
                             <td><b>Ukupno</b></td>
                             <td><?php echo '<b>'.$CartItemsSum[0]->Price.' EUR</b>' ?></td>
+                            <td></td>
                         </tr>
                     </tfoot>
                 </table>
@@ -96,8 +99,22 @@
             </div>
         <?php endif; ?>
     </div>
+    
+    <?php if(isset($_GET['cartItemDisabled']) && $_GET['cartItemDisabled']==true): ?>
+            <br>
+            <br>
+            <div class="alert alert-success" role="alert">Artikal je uspešno obrisan iz korpe</div>
+            <br>
+    <?php endif; ?>
+    <?php if(isset($_GET['cartItemDisabled']) && $_GET['cartItemDisabled']==false): ?>
+            <br>
+            <br>
+            <div class="alert alert-danger" role="alert">Brisanje artikla nije uspelo!</div>
+            <br>
+    <?php endif; ?>
     <br>
     <br>
+
 </div>
 
 <?php require '../partials/footer.php'; ?>

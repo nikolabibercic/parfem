@@ -87,7 +87,7 @@
             return $result;
         }
 
-        public function selectAllProducts($search,$categoryId,$brandId){
+        public function selectAllProducts($search,$categoryId,$brandId,$this_page_first_result,$results_per_page){
             $sql = "select  p.product_id
                             ,p.name as product_name
                             ,p.size
@@ -102,7 +102,9 @@
                     inner join brands b on b.brand_id = p.brand_id
                     where   (p.category_id = {$categoryId} or $categoryId = 0)
                             and (p.brand_id = {$brandId} or $brandId = 0)
-                            and (p.name like '%$search%' or c.name like '%$search%' or b.name like '%$search%');
+                            and (p.name like '%$search%' or c.name like '%$search%' or b.name like '%$search%')
+                            and p.product_status_id = 1
+                    limit {$this_page_first_result},{$results_per_page};
                     ";
 
             $query = $this->conn->prepare($sql);
