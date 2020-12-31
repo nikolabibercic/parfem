@@ -11,6 +11,6 @@
         header('Location: ../index.php'); 
     }else{
         $product->updateBrand($brandId,$brandNameNew);
-        header("Location: ../views/admin.administration.products.view.php?brandUpdated={$product->brandUpdated}");
+        header("Location: ../views/admin.update.brand.view.php?brandUpdated={$product->brandUpdated}");
     }
 ?>

@@ -10,6 +10,6 @@
         header('Location: ../index.php'); 
     }else{
         $product->insertBrand($brandName);
-        header("Location: ../views/admin.administration.products.view.php?brandInserted={$product->brandInserted}");
+        header("Location: ../views/admin.create.brand.view.php?brandInserted={$product->brandInserted}");
     }
 ?>

@@ -21,6 +21,6 @@
         $image1Path = $product->uploadPicture($image1);
 
         $product->insertProduct($brandId,$categoryId,$name,$size,$quantity,$purchasePrice,$sellingPrice,$otherInformation,$image1Path);
-        header("Location: ../views/admin.administration.products.view.php?productInserted={$product->productInserted}");
+        header("Location: ../views/admin.create.product.view.php?productInserted={$product->productInserted}");
     }
 ?>

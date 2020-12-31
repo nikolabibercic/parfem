@@ -11,6 +11,6 @@
         header('Location: ../index.php'); 
     }else{
         $product->updateCategory($categoryId,$categoryNameNew);
-        header("Location: ../views/admin.administration.products.view.php?categoryUpdated={$product->categoryUpdated}");
+        header("Location: ../views/admin.update.category.view.php?categoryUpdated={$product->categoryUpdated}");
     }
 ?>

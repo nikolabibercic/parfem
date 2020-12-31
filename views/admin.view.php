@@ -23,17 +23,55 @@
 <br>
 
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
+
         <div class="col-3">
-        </div> 
-        <div class="col-6">
             <?php if($user->checkUserAdmin($user_id)): ?>
-                <button type="button" class="btn btn-info"><a href="admin.administration.products.view.php" style="color:white; text-decoration: none;">Administracija proizvoda</a></button>
+                <button type="button" class="btn btn-info"><a href="admin.create.category.view.php" style="color:white; text-decoration: none;">Kreiranje kategorije</a></button>
             <?php endif; ?>
-        </div>    
-        <div class="col-3">
         </div>  
+
+        <div class="col-3">
+            <?php if($user->checkUserAdmin($user_id)): ?>
+                <button type="button" class="btn btn-info"><a href="admin.delete.category.view.php" style="color:white; text-decoration: none;">Brisanje kategorije</a></button>
+            <?php endif; ?>
+        </div>   
+
+        <div class="col-3">
+            <?php if($user->checkUserAdmin($user_id)): ?>
+                <button type="button" class="btn btn-info"><a href="admin.update.category.view.php" style="color:white; text-decoration: none;">Izmena kategorije</a></button>
+            <?php endif; ?>
+        </div>   
+
+        <div class="w-100"></div><br>
+
+        <div class="col-3">
+            <?php if($user->checkUserAdmin($user_id)): ?>
+                <button type="button" class="btn btn-info"><a href="admin.create.brand.view.php" style="color:white; text-decoration: none;">Kreiranje brenda</a></button>
+            <?php endif; ?>
+        </div>  
+
+        <div class="col-3">
+            <?php if($user->checkUserAdmin($user_id)): ?>
+                <button type="button" class="btn btn-info"><a href="admin.delete.brand.view.php" style="color:white; text-decoration: none;">Brisanje brenda</a></button>
+            <?php endif; ?>
+        </div>   
+
+        <div class="col-3">
+            <?php if($user->checkUserAdmin($user_id)): ?>
+                <button type="button" class="btn btn-info"><a href="admin.update.brand.view.php" style="color:white; text-decoration: none;">Izmena brenda</a></button>
+            <?php endif; ?>
+        </div>   
+
+        <div class="w-100"></div><br>
+
+        <div class="col-3">
+            <?php if($user->checkUserAdmin($user_id)): ?>
+                <button type="button" class="btn btn-info"><a href="admin.create.product.view.php" style="color:white; text-decoration: none;">Kreiranje proizvoda</a></button>
+            <?php endif; ?>
+        </div>   
     </div>
 </div>
-
+<br>
+<br>
 <?php require '../partials/footer.php'; ?>

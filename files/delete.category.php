@@ -10,6 +10,6 @@
         header('Location: ../index.php'); 
     }else{
         $product->deleteCategory($categoryId);
-        header("Location: ../views/admin.administration.products.view.php?categoryDeleted={$product->categoryDeleted}");
+        header("Location: ../views/admin.delete.category.view.php?categoryDeleted={$product->categoryDeleted}");
     }
 ?>

@@ -10,6 +10,6 @@
         header('Location: ../index.php'); 
     }else{
         $product->deleteBrand($brandId);
-        header("Location: ../views/admin.administration.products.view.php?brandDeleted={$product->brandDeleted}");
+        header("Location: ../views/admin.delete.brand.view.php?brandDeleted={$product->brandDeleted}");
     }
 ?>

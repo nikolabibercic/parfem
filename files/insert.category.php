@@ -10,6 +10,6 @@
         header('Location: ../index.php'); 
     }else{
         $product->insertCategory($categoryName);
-        header("Location: ../views/admin.administration.products.view.php?categoryInserted={$product->categoryInserted}");
+        header("Location: ../views/admin.create.category.view.php?categoryInserted={$product->categoryInserted}");
     }
 ?>
