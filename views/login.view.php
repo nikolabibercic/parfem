@@ -32,6 +32,8 @@
                 <button type="submit" name="logIn">Prijavi se</button>
                 <br><br>
                 <p>Ako nemaš nalog, registruj se ovde <a href="register.view.php">Registracija</a></p>
+                <br>
+                <br>
             </form>
         </div>    
         <div class="col-3">

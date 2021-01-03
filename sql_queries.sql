@@ -144,6 +144,7 @@ insert into product_statuses values(null,'Inactive');
 insert into cart_item_statuses values(null,'In cart');
 insert into cart_item_statuses values(null,'Ordered');
 insert into cart_item_statuses values(null,'Disabled');
+insert into cart_item_statuses values(null,'Delivered');
 
 insert into categories values(null,'Muški parfemi');
 insert into categories values(null,'Ženski parfemi');

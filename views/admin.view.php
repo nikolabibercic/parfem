@@ -27,19 +27,19 @@
 
         <div class="col-3">
             <?php if($user->checkUserAdmin($user_id)): ?>
-                <button type="button" class="btn btn-info"><a href="admin.create.category.view.php" style="color:white; text-decoration: none;">Kreiranje kategorije</a></button>
+                <button type="button" class="btn btn-danger"><a href="admin.create.category.view.php" style="color:white; text-decoration: none;">Kreiranje kategorije</a></button>
             <?php endif; ?>
         </div>  
 
         <div class="col-3">
             <?php if($user->checkUserAdmin($user_id)): ?>
-                <button type="button" class="btn btn-info"><a href="admin.delete.category.view.php" style="color:white; text-decoration: none;">Brisanje kategorije</a></button>
+                <button type="button" class="btn btn-danger"><a href="admin.delete.category.view.php" style="color:white; text-decoration: none;">Brisanje kategorije</a></button>
             <?php endif; ?>
         </div>   
 
         <div class="col-3">
             <?php if($user->checkUserAdmin($user_id)): ?>
-                <button type="button" class="btn btn-info"><a href="admin.update.category.view.php" style="color:white; text-decoration: none;">Izmena kategorije</a></button>
+                <button type="button" class="btn btn-danger"><a href="admin.update.category.view.php" style="color:white; text-decoration: none;">Izmena kategorije</a></button>
             <?php endif; ?>
         </div>   
 
@@ -47,29 +47,38 @@
 
         <div class="col-3">
             <?php if($user->checkUserAdmin($user_id)): ?>
-                <button type="button" class="btn btn-info"><a href="admin.create.brand.view.php" style="color:white; text-decoration: none;">Kreiranje brenda</a></button>
+                <button type="button" class="btn btn-danger"><a href="admin.create.brand.view.php" style="color:white; text-decoration: none;">Kreiranje brenda</a></button>
             <?php endif; ?>
         </div>  
 
         <div class="col-3">
             <?php if($user->checkUserAdmin($user_id)): ?>
-                <button type="button" class="btn btn-info"><a href="admin.delete.brand.view.php" style="color:white; text-decoration: none;">Brisanje brenda</a></button>
+                <button type="button" class="btn btn-danger"><a href="admin.delete.brand.view.php" style="color:white; text-decoration: none;">Brisanje brenda</a></button>
             <?php endif; ?>
         </div>   
 
         <div class="col-3">
             <?php if($user->checkUserAdmin($user_id)): ?>
-                <button type="button" class="btn btn-info"><a href="admin.update.brand.view.php" style="color:white; text-decoration: none;">Izmena brenda</a></button>
+                <button type="button" class="btn btn-danger"><a href="admin.update.brand.view.php" style="color:white; text-decoration: none;">Izmena brenda</a></button>
             <?php endif; ?>
         </div>   
 
         <div class="w-100"></div><br>
 
         <div class="col-3">
-            <?php if($user->checkUserAdmin($user_id)): ?>
-                <button type="button" class="btn btn-info"><a href="admin.create.product.view.php" style="color:white; text-decoration: none;">Kreiranje proizvoda</a></button>
+            <?php if($user->checkUserAdmin($user_id) or $user->checkUserBloger($user_id)): ?>
+                <button type="button" class="btn btn-success"><a href="admin.create.product.view.php" style="color:white; text-decoration: none;">Kreiranje proizvoda</a></button>
             <?php endif; ?>
         </div>   
+
+        <div class="w-100"></div><br>
+
+        <div class="col-3">
+            <?php if($user->checkUserAdmin($user_id) or $user->checkUserBloger($user_id)): ?>
+                <button type="button" class="btn btn-success"><a href="admin.orders.view.php" style="color:white; text-decoration: none;">Porudžbine</a></button>
+            <?php endif; ?>
+        </div>   
+
     </div>
 </div>
 <br>

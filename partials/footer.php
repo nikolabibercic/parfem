@@ -1,21 +1,13 @@
 
     <div class="container-fluid" style="background-color: lightgrey;">
         <div class="row">
-            <div class="col-6" >
-            <br>
-                <ul style="list-style-type:none;">
-                    <li><a href="/shop/views/login.view.php" style="color: black">Prijava</a><br></li>
-                    <li><a href="/shop/views/register.view.php" style="color: black">Registracija</a><br></li>
-                    <li><a href="/shop/index.php" style="color: black">Početna stranica</a></li>
-                </ul>
-                        
-            </div>
-            <div class="col-6" >
-            <br>
-                <ul class="nav float-right">
+            <div class="col-12" >
+                <br>
+                <ul class="nav justify-content-center">
                     <li class="nav-item"><a href="#" class="nav-link"><img src="/shop/images/facebookIcon.png" class="img-fluid" alt="Responsive image" width="40px" height="40px"></a></li>
                     <li class="nav-item"><a href="#" class="nav-link"><img src="/shop/images/instagramIcon.png" class="img-fluid" alt="Responsive image" width="40px" height="40px"></a></li>
-                </ul>   
+                </ul>
+                <br>
             </div>
         </div>
     </div>
