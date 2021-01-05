@@ -107,5 +107,16 @@
             $query = $this->conn->prepare($sql);
             $query->execute();
         }
+
+        public function updateProductQuantity($userId){
+            $sql = "
+                    update products p
+                    inner join cart_items ci on p.product_id = ci.product_id
+                    inner join carts c on c.cart_id = ci.cart_id and ci.cart_item_status_id = 1 and c.user_id = {$userId}
+                    set p.quantity = p.quantity - 1
+                    ";
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+        }
     }
 ?>
