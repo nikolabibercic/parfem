@@ -12,7 +12,7 @@ Sajt za prodaju parfema
 
 -Napravi na admin stranici mogucnost da se poveca broj proizvoda
 
--Na admin stranici napraviti mogucnost disejblovanja proizvoda
+-Na admin stranici napraviti mogucnost deaktivacije proizvoda (URADJENO)
 
 -Na admin stranici admin.orders.view.php napraviti prikaz porudzbina i mogucnost da se promeni cart_item_status u isporuceno
 
@@ -24,4 +24,4 @@ Sajt za prodaju parfema
 
 -Napraviti adminu mogucnost da dodeli pravo blogera korisniku
 
--Napraviti da je user logovan nakon sto se registruje
+-Napraviti da je user logovan nakon sto se registruje (URADJENO)

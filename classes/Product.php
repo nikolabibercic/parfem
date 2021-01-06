@@ -8,6 +8,7 @@
         public $categoryUpdated = null;
         public $brandUpdated = null;
         public $productInserted = null;
+        public $productStatusChanged = null;
 
         public function insertCategory($categoryName){
             $sql = "insert into categories values(null,'{$categoryName}')";
@@ -98,12 +99,13 @@
                             ,c.name as category_name
                             ,b.name as brand_name
                     from products p
+                    inner join product_statuses ps on ps.product_status_id = p.product_status_id
                     inner join categories c on c.category_id = p.category_id
                     inner join brands b on b.brand_id = p.brand_id
                     where   (p.category_id = {$categoryId} or $categoryId = 0)
                             and (p.brand_id = {$brandId} or $brandId = 0)
                             and (p.name like '%$search%' or c.name like '%$search%' or b.name like '%$search%')
-                            and p.product_status_id = 1
+                            and ps.product_status = 'Active'
                     limit {$this_page_first_result},{$results_per_page};
                     ";
 
@@ -124,8 +126,10 @@
                             ,c.name as category_name
                             ,b.name as brand_name
                     from products p
+                    inner join product_statuses ps on ps.product_status_id = p.product_status_id
                     inner join categories c on c.category_id = p.category_id
                     inner join brands b on b.brand_id = p.brand_id
+                    where ps.product_status = 'Active'
                     limit 10;
                     ";
 
@@ -214,6 +218,45 @@
                     $this->productInserted = false;
                 }
             }
+
+            public function selectProducts(){
+                $sql = "select  p.*, b.name as brand_name, ps.product_status as product_status
+                        from products p
+                        inner join product_statuses ps on ps.product_status_id = p.product_status_id
+                        inner join brands b on b.brand_id = p.brand_id
+                        order by ps.product_status
+                        ";
+    
+                $query = $this->conn->prepare($sql);
+                $query->execute();
+                $result = $query->fetchAll(PDO::FETCH_OBJ);
+                return $result;
+            }
+
+            public function selectProductStatuses(){
+                $sql = "select *
+                        from product_statuses
+                        ";
+    
+                $query = $this->conn->prepare($sql);
+                $query->execute();
+                $result = $query->fetchAll(PDO::FETCH_OBJ);
+                return $result;
+            }
+
+            public function updateProductStatus($productId,$productStatusId){
+                $sql = "
+                        update products set product_status_id = {$productStatusId} where product_id = {$productId};
+                        ";
+                $query = $this->conn->prepare($sql);
+                $checkUpdate = $query->execute();
+    
+                if($checkUpdate){
+                    $this->productStatusChanged = true;
+                }else{
+                    $this->productStatusChanged = false;
+                }
+            }            
 
     }
 ?>

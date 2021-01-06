@@ -12,10 +12,10 @@
 
     $image1 = $_FILES["image1"];
 
-    // Provera da li user ima admin prava
+    // Provera da li user ima admin ili bloger prava
     $user_id = $_SESSION['user']->user_id;
 
-    if(!$user->checkUserAdmin($user_id)){
+    if(!$user->checkUserAdmin($user_id) and !$user->checkUserBloger($user_id)){
         header('Location: ../index.php'); 
     }else{
         $image1Path = $product->uploadPicture($image1);
