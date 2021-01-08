@@ -3,6 +3,8 @@
 
         public $userLogged = null;
         public $userRegistered = null;
+        public $roleAdded = null;
+        public $roleDeleted = null;
 
         public function loginUser($email,$password){
             $sql = "select * from users u where u.email = '{$email}' and u.password = '{$password}' ";
@@ -65,6 +67,66 @@
             $query->execute();
             $checkUserBloger = $query->fetchAll(PDO::FETCH_OBJ);
             return $checkUserBloger;
+        }
+
+        public function selectAllUsers(){
+            $sql = "select u.*, r.name as role_name
+                    from users u
+                    left join user_roles ur on ur.user_id = u.user_id
+                    left join roles r on r.role_id = ur.role_id 
+                    order by r.role_id desc, u.user_id desc ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            return $result;
+        }
+
+        public function selectAdminAndBlogerUsers(){
+            $sql = "select u.*, r.name as role_name, ur.user_role_id
+                    from users u
+                    inner join user_roles ur on ur.user_id = u.user_id
+                    inner join roles r on r.role_id = ur.role_id 
+                    order by r.role_id desc, u.user_id desc ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            return $result;
+        }
+
+        public function selectAllRoles(){
+            $sql = "select r.*
+                    from roles r ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            return $result;
+        }
+
+        public function insertRole($userId,$roleId){
+            $sql = "insert into user_roles values(null,{$userId},{$roleId})";
+            $query = $this->conn->prepare($sql);
+            $checkInsert = $query->execute();
+
+            if($checkInsert){
+                $this->roleAdded = true;
+            }else{
+                $this->roleAdded = false;
+            }
+        }
+
+        public function deleteRole($userRoleId){
+            $sql = "delete from user_roles where user_role_id = {$userRoleId}";
+            $query = $this->conn->prepare($sql);
+            $checkDelete = $query->execute();
+
+            if($checkDelete){
+                $this->roleDeleted = true;
+            }else{
+                $this->roleDeleted = false;
+            }
         }
     }
 ?>

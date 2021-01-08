@@ -66,6 +66,20 @@
         <div class="w-100"></div><br>
 
         <div class="col-3">
+            <?php if($user->checkUserAdmin($user_id)): ?>
+                <button type="button" class="btn btn-warning"><a href="admin.add.role.view.php" style="color:white; text-decoration: none;">Dodela prava</a></button>
+            <?php endif; ?>
+        </div>
+
+        <div class="col-3">
+            <?php if($user->checkUserAdmin($user_id)): ?>
+                <button type="button" class="btn btn-warning"><a href="admin.delete.role.view.php" style="color:white; text-decoration: none;">Brisanje prava</a></button>
+            <?php endif; ?>
+        </div>
+
+        <div class="w-100"></div><br>
+
+        <div class="col-3">
             <?php if($user->checkUserAdmin($user_id) or $user->checkUserBloger($user_id)): ?>
                 <button type="button" class="btn btn-success"><a href="admin.create.product.view.php" style="color:white; text-decoration: none;">Kreiranje proizvoda</a></button>
             <?php endif; ?>
@@ -83,7 +97,9 @@
             <?php if($user->checkUserAdmin($user_id) or $user->checkUserBloger($user_id)): ?>
                 <button type="button" class="btn btn-success"><a href="admin.orders.view.php" style="color:white; text-decoration: none;">Porudžbine</a></button>
             <?php endif; ?>
-        </div>   
+        </div>
+
+
 
     </div>
 </div>

@@ -6,10 +6,10 @@
 
 <?php
 
-    // Provera da li user ima admin ili bloger prava
+    // Provera da li user ima admin prava
     $user_id = $_SESSION['user']->user_id;
 
-    if(!$user->checkUserAdmin($user_id) and !$user->checkUserBloger($user_id)){
+    if(!$user->checkUserAdmin($user_id)){
         header('Location: user.view.php'); 
     }
 ?>

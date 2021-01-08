@@ -6,22 +6,20 @@ Sajt za prodaju parfema
 
 -Namestiti paginaciju na naslovnoj strani
 
-
-
--Napraviti brojac proizvoda, kada neko poruci proizvod broj proizvoda se smanjuje za jedan (URADJENO)
-
 -Napravi na admin stranici mogucnost da se poveca broj proizvoda
 
--Na admin stranici napraviti mogucnost deaktivacije proizvoda (URADJENO)
-
 -Na admin stranici admin.orders.view.php napraviti prikaz porudzbina i mogucnost da se promeni cart_item_status u isporuceno
-
--Dodati telefon u tabelu orders i u formu gde se kupe podaci (URADJENO)
 
 -Napraviti brojac neisporucenih porudzbina pored dugmeta na admin stranici
 
 -Na index stranici napraviti paginaciju da budu dve strane sa po 5 proizvoda
 
--Napraviti adminu mogucnost da dodeli pravo blogera korisniku
+-Napraviti adminu mogucnost da dodeli i obrise prava blogera i admina korisniku 
+
+-Napraviti podfolder za slike drustvenih mreza, korpu i logo sajta
+
 
 -Napraviti da je user logovan nakon sto se registruje (URADJENO)
+-Dodati telefon u tabelu orders i u formu gde se kupe podaci (URADJENO)
+-Napraviti brojac proizvoda, kada neko poruci proizvod broj proizvoda se smanjuje za jedan (URADJENO)
+-Na admin stranici napraviti mogucnost deaktivacije proizvoda (URADJENO)
