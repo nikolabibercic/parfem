@@ -9,6 +9,7 @@
         public $brandUpdated = null;
         public $productInserted = null;
         public $productStatusChanged = null;
+        public $productQuantityUpdated = null;
 
         public function insertCategory($categoryName){
             $sql = "insert into categories values(null,'{$categoryName}')";
@@ -233,6 +234,20 @@
                 return $result;
             }
 
+            public function selectProducts2(){
+                $sql = "select  p.*, b.name as brand_name, ps.product_status as product_status
+                        from products p
+                        inner join product_statuses ps on ps.product_status_id = p.product_status_id
+                        inner join brands b on b.brand_id = p.brand_id
+                        order by p.product_id
+                        ";
+    
+                $query = $this->conn->prepare($sql);
+                $query->execute();
+                $result = $query->fetchAll(PDO::FETCH_OBJ);
+                return $result;
+            }
+
             public function selectProductStatuses(){
                 $sql = "select *
                         from product_statuses
@@ -257,6 +272,20 @@
                     $this->productStatusChanged = false;
                 }
             }            
+
+            public function updateProductQuantity($productId,$quantity){
+                $sql = "
+                        update products set quantity = {$quantity} where product_id = {$productId};
+                        ";
+                $query = $this->conn->prepare($sql);
+                $checkUpdate = $query->execute();
+    
+                if($checkUpdate){
+                    $this->productQuantityUpdated = true;
+                }else{
+                    $this->productQuantityUpdated = false;
+                }
+            }      
 
     }
 ?>

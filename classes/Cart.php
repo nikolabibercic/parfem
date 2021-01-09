@@ -3,6 +3,7 @@
 
         public $itemInserted = null;
         public $cartItemDisabled = null;
+        public $cartItemStatusChanged = null;
 
         public function cartItemDisabled($cartItemId,$userId){
             $sql = "
@@ -20,6 +21,22 @@
                 $this->cartItemDisabled = true;
             }else{
                 $this->cartItemDisabled = false;
+            }
+        }
+
+        public function updateCartItemStatus($cartItemId){
+            $sql = "
+                    update cart_items 
+                    set cart_item_status_id = 4
+                    where cart_item_id = {$cartItemId}
+                    ";
+            $query = $this->conn->prepare($sql);
+            $checkUpdate = $query->execute();
+
+            if($checkUpdate){
+                $this->cartItemStatusChanged = true;
+            }else{
+                $this->cartItemStatusChanged = false;
             }
         }
 

@@ -89,6 +89,12 @@
             <?php if($user->checkUserAdmin($user_id) or $user->checkUserBloger($user_id)): ?>
                 <button type="button" class="btn btn-success"><a href="admin.change.product.status.view.php" style="color:white; text-decoration: none;">Status proizvoda</a></button>
             <?php endif; ?>
+        </div>
+
+        <div class="col-3">
+            <?php if($user->checkUserAdmin($user_id) or $user->checkUserBloger($user_id)): ?>
+                <button type="button" class="btn btn-success"><a href="admin.update.product.quantity.view.php" style="color:white; text-decoration: none;">Količina proizvoda</a></button>
+            <?php endif; ?>
         </div>   
 
         <div class="w-100"></div><br>

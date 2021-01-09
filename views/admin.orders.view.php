@@ -16,7 +16,7 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container text-center">
-            <h1 class="display-4">Forma za porudžbine</h1>
+            <h1 class="display-4">Forma - porudžbine</h1>
     </div>
 </div>
 
@@ -26,27 +26,41 @@
     <div class="row">
 
             <div class="col-12">
-                <h3>Poručeni parfemi</h3>
-                <table class="table table-dark table-striped table-hover">
-                    <thead>
+                <h3>Porudžbine</h3>
+                <table class="table">
+                    <thead class="table-dark">
                         <tr>
                         <!--<th>Kategorija</th>-->
-                            <th>Parfem</th>
-                            <th>ML</th>
-                            <th>Cena</th>
-                            <th>Status</th>
+                            <th>Order ID</th>
+                            <th>Tran ID</th>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Address</th>
+                            <th>Zip code</th>
+                            <th>City</th>
+                            <th>Municipality</th>
+                            <th>Phone</th>
+                            <th>Delivery method</th>
                             <th>Order date</th>
+                            <th>Details</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                    <?php foreach($items as $i): ?>
+                    <?php $orders = $order->selectOrders();  foreach($orders as $o): ?>
                         <tr>
-                            <td><?php echo $i->brand_name.' '.$i->product_name ?></td>
-                            <td><?php echo $i->size ?></td>
-                            <td><?php echo $i->selling_price ?></td>
-                            <td><?php echo $i->cart_item_status ?></td>
-                            <td><?php echo $i->cart_item_transaction_date ?></td>
+                            <td><?php echo $o->order_id ?></td>
+                            <td><?php echo $o->transaction_id ?></td>
+                            <td><?php echo $o->user_name ?></td>
+                            <td><?php echo $o->user_surname ?></td>
+                            <td><?php echo $o->user_address ?></td>
+                            <td><?php echo $o->user_zip_code ?></td>
+                            <td><?php echo $o->user_city ?></td>
+                            <td><?php echo $o->user_municipality ?></td>
+                            <td><?php echo $o->phone ?></td>
+                            <td><?php echo $o->delivery_method ?></td>
+                            <td><?php echo $o->order_date ?></td>
+                            <td><a class="btn btn-success btn-sm" href="admin.order.details.view.php?transactionId=<?php echo $o->transaction_id ?>">Detalji</a></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>    
