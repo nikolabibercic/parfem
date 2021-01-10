@@ -6,6 +6,7 @@ Sajt za prodaju parfema
 
 -Napraviti podfolder za slike drustvenih mreza, korpu i logo sajta
 
+-Ako je user admin ili bloger umesto korpe pojavljuje mu se opcija porudzbine
 
 
 -Napraviti brojac neisporucenih porudzbina pored dugmeta na admin stranici (URADJENO)

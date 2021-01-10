@@ -8,19 +8,30 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-                    <a href="/shop/views/cart.view.php" class="nav-link" id="navLink1" style="color:white;">
-                        <?php
-                            if(!isset($_SESSION['user'])){
-                                echo 'Korpa';
-                            }else{
-                                $userId = $_SESSION['user']->user_id;
+                <?php
+                    //Ako je user ulogovan kupi njegov user id
+                    if(isset($_SESSION['user'])){
+                        $userId = $_SESSION['user']->user_id;
+                    }
+                ?>  
+
+                <?php if(!isset($_SESSION['user'])): //ako nije ulogovan ne ispisuje nista ?>        
+                    <?php echo ''; ?>
+                <?php elseif($user->checkUserAdmin($userId) or $user->checkUserBloger($userId)): //ako je admin ili bloger ispisuje opciju Porudzbine ?>
+                    <li class="nav-item">
+                        <a href="/shop/views/admin.orders.view.php" class="nav-link" id="navLink1" style="color:white;">Porudzbine</a>
+                    </li>
+                <?php elseif(isset($_SESSION['user']) and !$user->checkUserAdmin($userId) and !$user->checkUserBloger($userId)): //ako je ulogovan a nije admin i bloger ispisuje opciju Korpa ?>
+                    <li class="nav-item">
+                        <a href="/shop/views/cart.view.php" class="nav-link" id="navLink1" style="color:white;">
+                            <?php
                                 $cartItemsCount = $cart->cartItemsCount($userId);
                                 echo '<b>'.$cartItemsCount[0]->CountItems.'</b> Korpa';
-                            }
-                        ?>
-                    </a>
-                </li>
+                            ?>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
 
                 <?php if(isset($_SESSION['user'])): ?>        
                     <li class="nav-item">
