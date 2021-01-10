@@ -1,4 +1,5 @@
 <?php
+
     require 'objects.php';
 
     require 'partials/header.php';

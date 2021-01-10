@@ -43,6 +43,7 @@
                             <th>Delivery method</th>
                             <th>Order date</th>
                             <th>Details</th>
+                            <th>Undelivered</th>
                         </tr>
                     </thead>
 
@@ -61,6 +62,12 @@
                             <td><?php echo $o->delivery_method ?></td>
                             <td><?php echo $o->order_date ?></td>
                             <td><a class="btn btn-success btn-sm" href="admin.order.details.view.php?transactionId=<?php echo $o->transaction_id ?>">Detalji</a></td>
+                            <td>
+                                <?php 
+                                    $result = $order->countUndeliveredOrders($o->transaction_id);
+                                    echo $result->Count_undelivered_orders;
+                                ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>    

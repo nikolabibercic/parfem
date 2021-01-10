@@ -30,6 +30,23 @@
             return $result;
         }
 
+        public function countUndeliveredOrders($transactionId){
+            $sql = "
+                    select count(*) as Count_undelivered_orders
+                    from orders o
+                    inner join cart_items_transactions cit on cit.transaction_id = o.transaction_id
+                    inner join cart_items ci on ci.cart_item_id = cit.cart_item_id
+                    inner join cart_item_statuses cis on cis.cart_item_status_id = ci.cart_item_status_id
+                    where o.transaction_id = {$transactionId} 
+                            and cis.cart_item_status <> 'Delivered' 
+                    ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $result = $query->fetch(PDO::FETCH_OBJ);
+            return $result;
+        }
+
         public function selectOrderDetails($transactionId){
             $sql = "select ci.cart_item_id, ci.product_name, ci.brand_name, ci.category_name, ci.size, ci.selling_price, cis.cart_item_status
                     from orders o

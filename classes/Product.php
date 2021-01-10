@@ -116,7 +116,7 @@
             return $result;
         }
 
-        public function selectTop10Products(){
+        public function selectTop10Products($this_page_first_result,$results_per_page){
             $sql = "select  p.product_id
                             ,p.name as product_name
                             ,p.size
@@ -131,7 +131,7 @@
                     inner join categories c on c.category_id = p.category_id
                     inner join brands b on b.brand_id = p.brand_id
                     where ps.product_status = 'Active'
-                    limit 10;
+                    limit {$this_page_first_result},{$results_per_page};
                     ";
 
             $query = $this->conn->prepare($sql);
