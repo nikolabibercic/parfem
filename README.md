@@ -6,9 +6,13 @@ Sajt za prodaju parfema
 
 -Napraviti podfolder za slike drustvenih mreza, korpu i logo sajta
 
--Ako je user admin ili bloger umesto korpe pojavljuje mu se opcija porudzbine
+-Napraviti kontakt stranicu sa formom i slanjem mejla sa forme
+
+-Napraviti link sa kartice proizvoda ka stranici sa tim proizvodom
 
 
+
+-Ako je user admin ili bloger umesto korpe pojavljuje mu se opcija porudzbine (URADJENO)
 -Napraviti brojac neisporucenih porudzbina pored dugmeta na admin stranici (URADJENO)
 -Na index stranici napraviti paginaciju da budu dve strane sa po 5 proizvoda (URADJENO)
 -Napravi na admin stranici mogucnost da se poveca broj proizvoda (URADJENO)

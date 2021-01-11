@@ -34,6 +34,11 @@
         <div class="col-3">
         </div> 
         <div class="col-6">
+
+            <?php if(isset($_GET['transactionError']) && $_GET['transactionError']==true): ?>
+                <div class="alert alert-danger" role="alert">Nema otvorene transakcije!!!</div>
+            <?php endif; ?>
+
             <br>
             <form action="../files/order.php" method="POST">
 

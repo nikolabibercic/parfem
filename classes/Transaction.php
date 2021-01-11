@@ -3,6 +3,9 @@
 
         public $transactionInserted = null;
         public $cartItemsTransactionsInserted = null;
+        public $checkUpdateUserTranStatus = null;
+        public $checkUpdateUserCartItemStatus = null;
+        public $checkUpdateProductQuantity = null;
 
         public function insertTransaction($userId){
             $sql = "
@@ -53,7 +56,13 @@
                     where transaction_id = {$maxUserTranId};
                     ";
             $query = $this->conn->prepare($sql);
-            $query->execute();
+            $checkUpdate = $query->execute();
+
+            if($checkUpdate){
+                $this->checkUpdateUserTranStatus = true;
+            }else{
+                $this->checkUpdateUserTranStatus = false;
+            }
         }
 
         public function selectUserCartItemId($userId){
@@ -70,6 +79,7 @@
         }
 
         public function insertUserCartItemsTransactions($userId,$maxUserTranId){
+
             $sql = "
                 insert into cart_items_transactions (
                     transaction_id,
@@ -105,7 +115,13 @@
                             )
                     ";
             $query = $this->conn->prepare($sql);
-            $query->execute();
+            $checkUpdate = $query->execute();
+
+            if($checkUpdate){
+                $this->checkUpdateUserCartItemStatus = true;
+            }else{
+                $this->checkUpdateUserCartItemStatus = false;
+            }
         }
 
         public function updateProductQuantity($userId){
@@ -116,7 +132,13 @@
                     set p.quantity = p.quantity - 1
                     ";
             $query = $this->conn->prepare($sql);
-            $query->execute();
+            $checkUpdate = $query->execute();
+
+            if($checkUpdate){
+                $this->checkUpdateProductQuantity = true;
+            }else{
+                $this->checkUpdateProductQuantity = false;
+            }
         }
     }
 ?>

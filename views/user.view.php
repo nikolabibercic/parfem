@@ -33,8 +33,8 @@
     <div class="row">
             <div class="col-12">
                 <h3>Poručeni parfemi</h3>
-                <table class="table table-dark table-striped table-hover">
-                    <thead>
+                <table class="table">
+                    <thead class="table table-dark">
                         <tr>
                         <!--<th>Kategorija</th>-->
                             <th>Parfem</th>
