@@ -15,8 +15,3 @@
     require 'partials/footer.php';
 
 ?>
-
-
-    
-
-

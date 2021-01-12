@@ -1,3 +1,15 @@
+var navLink6 = document.getElementById('navLink6');
+if(navLink6 != null){
+    navLink6.onmouseover = function(){
+        navLink6.style.color = 'darkblue';
+        navLink6.style.backgroundColor = 'white';
+    }
+    navLink6.onmouseleave = function(){
+        navLink6.style.color = 'white';
+        navLink6.style.backgroundColor = 'darkblue';
+    }
+}
+
 var navLink1 = document.getElementById('navLink1');
 if(navLink1 != null){
     navLink1.onmouseover = function(){
@@ -45,10 +57,5 @@ if(navLink4 != null){
         navLink4.style.backgroundColor = 'darkblue';
     }
 }
-
-
-
-
-
 
 
