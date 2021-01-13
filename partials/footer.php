@@ -4,8 +4,8 @@
             <div class="col-12" >
                 <br>
                 <ul class="nav justify-content-center">
-                    <li class="nav-item"><a href="#" class="nav-link"><img src="/shop/images/facebookIcon.png" class="img-fluid" alt="Responsive image" width="40px" height="40px"></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><img src="/shop/images/instagramIcon.png" class="img-fluid" alt="Responsive image" width="40px" height="40px"></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><img src="/shop/images/siteImages/facebookIcon.png" class="img-fluid" alt="Responsive image" width="40px" height="40px"></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><img src="/shop/images/siteImages/instagramIcon.png" class="img-fluid" alt="Responsive image" width="40px" height="40px"></a></li>
                 </ul>
                 <br>
             </div>

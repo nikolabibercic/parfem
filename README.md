@@ -9,9 +9,9 @@ Sajt za prodaju parfema
 
 -Napraviti link sa kartice proizvoda ka stranici sa tim proizvodom
 
+
+
 -Napraviti zutu traku ispod navbara (URADJENO)
-
-
 -Pedesiti kontrole u order.php da se insert i update upiti izvrsavaju uslovno jedan za drugim (URADJENO) 
 -Ako je user admin ili bloger umesto korpe pojavljuje mu se opcija porudzbine (URADJENO)
 -Napraviti brojac neisporucenih porudzbina pored dugmeta na admin stranici (URADJENO)
