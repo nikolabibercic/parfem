@@ -6,6 +6,16 @@
         public $roleAdded = null;
         public $roleDeleted = null;
 
+        public function userEmail($userId){
+            $sql = "select email from users u where u.user_id = {$userId} ";
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            
+            //Ovde koristim fetch metodu jer vraca samo jedan podatak, ne koristim fetchAll
+            $email = $query->fetch(PDO::FETCH_OBJ);
+            return $email;
+        }
+
         public function loginUser($email,$password){
             $sql = "select * from users u where u.email = '{$email}' and u.password = '{$password}' ";
             $query = $this->conn->prepare($sql);

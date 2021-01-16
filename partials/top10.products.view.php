@@ -1,8 +1,8 @@
 <?php
    
-    $number_of_products = 10;
+    $number_of_products = $pagination->numberOfTop10Products();
     $results_per_page = 5;
-    $number_of_pages = 2;
+    $number_of_pages = ceil($number_of_products[0]->number_of_products / $results_per_page);
 
     if(!isset($_GET['page'])){
         $page = 1;
@@ -22,10 +22,9 @@
 <br>
 <div class="container">
     <div class="row">
-        <div class="col-3">
-        </div> 
 
-        <div class="col-6">
+
+        <div class="col-12">
             <?php require 'files/products.generate.php'; //Generisanje kartica sa proizvodima ?> 
             <br>
             <br>
@@ -43,7 +42,6 @@
             <br>
         </div>
 
-        <div class="col-3">
-        </div>  
+  
     </div>
 </div>

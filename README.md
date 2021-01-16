@@ -2,15 +2,16 @@
 Sajt za prodaju parfema
 
 
-
--Napraviti podfolder za slike drustvenih mreza, korpu i logo sajta
-
--Napraviti kontakt stranicu sa formom i slanjem mejla sa forme
-
--Napraviti link sa kartice proizvoda ka stranici sa tim proizvodom
-
+Verzija 2
+-Izmena cene proizvoda
+-Izmena velicine proizvoda
+-Postaviti linkove ka drustvenim mrezama
+-Napraviti link sa kartice proizvoda ka stranici sa tim proizvodom (???)
 
 
+Verzija 1
+-Napraviti kontakt stranicu sa formom i slanjem mejla sa forme (URADJENO)
+-Napraviti podfolder za slike drustvenih mreza, korpu i logo sajta (URADJENO)
 -Napraviti zutu traku ispod navbara (URADJENO)
 -Pedesiti kontrole u order.php da se insert i update upiti izvrsavaju uslovno jedan za drugim (URADJENO) 
 -Ako je user admin ili bloger umesto korpe pojavljuje mu se opcija porudzbine (URADJENO)

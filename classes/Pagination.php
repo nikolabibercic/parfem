@@ -19,5 +19,21 @@
             $result = $query->fetchAll(PDO::FETCH_OBJ);
             return $result;
         }
+
+        public function numberOfTop10Products(){
+            $sql = "select  count(*) number_of_products
+                    from products p
+                    inner join product_statuses ps on ps.product_status_id = p.product_status_id
+                    inner join categories c on c.category_id = p.category_id
+                    inner join brands b on b.brand_id = p.brand_id
+                    where ps.product_status = 'Active'
+                    limit 10;
+                    ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            return $result;
+        }
     }
 ?>

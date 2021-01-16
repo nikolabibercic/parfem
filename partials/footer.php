@@ -8,6 +8,12 @@
                     <li class="nav-item"><a href="#" class="nav-link"><img src="/shop/images/siteImages/instagramIcon.png" class="img-fluid" alt="Responsive image" width="40px" height="40px"></a></li>
                 </ul>
                 <br>
+
+                <div class="text-center" style="font-size: 10px;">
+                    <a href='https://www.freepik.com/photos/people'>People photo created by prostooleh - www.freepik.com</a>
+                </div>
+                <br>
+
             </div>
         </div>
     </div>

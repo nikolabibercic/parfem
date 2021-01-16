@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="main.css">
 
     <!-- Google font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+    </style>
     <!-- Treba dodati neki google font -->
     
 </head>
