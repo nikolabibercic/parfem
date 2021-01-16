@@ -1,10 +1,11 @@
 <?php
 
-$from = "office@parfem.in.rs";
-$to = $_POST['mail'];
-$subject = "Mejl od korisnika ".$_POST['mail'];
+$from = 'office@parfem.in.rs';
+$email = $_POST['email'];
+$to = 'nikolabibercic@gmail.com';
+$subject = 'Mejl od korisnika: '.$email;
 $message = $_POST['text'];
-$header = "FROM: ".$from;
+$header = 'FROM: '.$from. "\r\n" . 'Reply-To: '.$email;
 
 mail($to,$subject,$message,$header);
 

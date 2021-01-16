@@ -47,7 +47,7 @@ CREATE TABLE products(
     purchase_price int not null,
     selling_price int not null,
     other_information varchar(50) character set utf8,
-    image varchar(50) character set utf8 not null unique,
+    image varchar(50) character set utf8 not null,
 	product_status_id int not null,
 	FOREIGN KEY (brand_id) REFERENCES brands(brand_id),
     FOREIGN KEY (category_id) REFERENCES categories(category_id),
@@ -81,10 +81,6 @@ CREATE TABLE cart_items(
     image varchar(50) character set utf8,
 	cart_item_status_id int not null,
 	import_date datetime not null,
-	FOREIGN KEY (cart_id) REFERENCES carts(cart_id),
-	FOREIGN KEY (product_id) REFERENCES products(product_id),
-	FOREIGN KEY (brand_id) REFERENCES brands(brand_id),
-    FOREIGN KEY (category_id) REFERENCES categories(category_id),
 	FOREIGN KEY (cart_item_status_id) REFERENCES cart_item_statuses(cart_item_status_id)
 );
 

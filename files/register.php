@@ -10,7 +10,11 @@
         header('Location: ../index.php');
     }else{
         $user->registerUser($name,$email,$password);
-        $user->loginUser($email,$password);
-        //header("Location: ../views/register.view.php?userRegistered={$user->userRegistered}");
+
+        if($user->userRegistered){
+            $user->loginUser($email,$password);
+        }else{
+            header("Location: ../views/register.view.php?userRegistered={$user->userRegistered}");
+        }
     }
 ?>

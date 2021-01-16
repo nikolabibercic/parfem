@@ -31,6 +31,8 @@
             </form>
 
             <?php if(isset($_GET['email']) && $_GET['email']==true): ?>
+                <br>
+                <br>
                 <div class="alert alert-success" role="alert">Poruka je poslata</div>
             <?php endif; ?>
             <?php if(isset($_GET['email']) && $_GET['email']==false): ?>

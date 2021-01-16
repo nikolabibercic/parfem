@@ -1,7 +1,7 @@
 <div class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: darkblue; ">
             <a class="navbar-brand" href="/shop/index.php" style="font-family: 'Dancing Script', cursive;">
-                <img src="../images/siteImages/logo.png" class="card-img-top" alt="" style="height:30px; width:30px;">
+                <img src="/shop/images/siteImages/logo.png" class="card-img-top" alt="" style="height:30px; width:30px;">
                 parfem.in.rs
             </a>
             
@@ -35,11 +35,13 @@
                         </li>
                     <?php endif; ?>
 
-                    <?php if(!isset($_SESSION['user']) or (isset($_SESSION['user']) and (!$user->checkUserAdmin($userId) or $user->checkUserBloger($userId))) ): //ako mije ulogovan, ili ako je ulogovan a nije admin ili bloger ima mogucnost da vidi kontakt stranicu ?>
+                    <?php if(!isset($userId) or ( isset($userId) and !$user->checkUserAdmin($userId) and !$user->checkUserBloger($userId) ) ): //ako nije ulogovan, ili ako je ulogovan a nije admin ili bloger ima mogucnost da vidi kontakt stranicu ?>
                         <li class="nav-item"><a href="/shop/views/contact.view.php" class="nav-link" id="navLink6" style="color:white;">Kontakt</a></li>  
                     <?php elseif(($user->checkUserAdmin($userId) or $user->checkUserBloger($userId))): //ako je admin ili bloger ne ispisuje nista ?>        
                         <?php echo ''; ?>
                     <?php endif; ?>
+
+                    <?php //echo var_dump(isset($userId)); ?>
 
                     <?php if(isset($_SESSION['user'])): ?>        
                         <li class="nav-item">
