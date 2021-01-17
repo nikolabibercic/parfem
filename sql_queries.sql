@@ -129,11 +129,17 @@ CREATE TABLE orders(
 	FOREIGN KEY (delivery_method_id) REFERENCES delivery_methods(delivery_method_id)
 );
 
+CREATE TABLE settings(
+	setting_id int AUTO_INCREMENT PRIMARY KEY,
+	setting_description varchar(50) character set utf8,
+	setting_value varchar(50) character set utf8
+);
+
+-------------------------------------------------------------------------------------------------
+---OBAVEZNI INSERTI
+-------------------------------------------------------------------------------------------------
 insert into roles values(null,'Admin');
 insert into roles values(null,'Bloger');
-
-insert into users values(null,'Nikola Bibercic','nikolabibercic@gmail.com','123');
-insert into user_roles values(null,1,1);
 
 insert into product_statuses values(null,'Active');
 insert into product_statuses values(null,'Inactive');
@@ -143,14 +149,19 @@ insert into cart_item_statuses values(null,'Ordered');
 insert into cart_item_statuses values(null,'Disabled');
 insert into cart_item_statuses values(null,'Delivered');
 
+insert into transaction_statuses values(null,'Incomplete');
+insert into transaction_statuses values(null,'Complete');
+-------------------------------------------------------------------------------------------------
+---OPCIONI INSERTI
+-------------------------------------------------------------------------------------------------
 insert into categories values(null,'Muški parfemi');
 insert into categories values(null,'Ženski parfemi');
 
 insert into brands values(null,'Armani');
 insert into brands values(null,'Bulgari');
 
+insert into users values(null,'Nikola Bibercic','nikolabibercic@gmail.com','123');
+insert into user_roles values(null,1,1);
+
 insert into delivery_methods values(null,'Post Express');
 insert into delivery_methods values(null,'Lično preuzimanje');
-
-insert into transaction_statuses values(null,'Incomplete');
-insert into transaction_statuses values(null,'Complete');
