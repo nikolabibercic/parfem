@@ -10,6 +10,8 @@
         public $productInserted = null;
         public $productStatusChanged = null;
         public $productQuantityUpdated = null;
+        public $productSellingPriceUpdated = null;
+        public $productPurchasePriceUpdated = null;
 
         public function insertCategory($categoryName){
             $sql = "insert into categories values(null,'{$categoryName}')";
@@ -285,7 +287,35 @@
                 }else{
                     $this->productQuantityUpdated = false;
                 }
-            }      
+            }
+            
+            public function updateProductSellingPrice($productId,$sellingPrice){
+                $sql = "
+                        update products set selling_price = {$sellingPrice} where product_id = {$productId};
+                        ";
+                $query = $this->conn->prepare($sql);
+                $checkUpdate = $query->execute();
+    
+                if($checkUpdate){
+                    $this->productSellingPriceUpdated = true;
+                }else{
+                    $this->productSellingPriceUpdated = false;
+                }
+            }
+
+            public function updateProductPurchasePrice($productId,$purchasePrice){
+                $sql = "
+                        update products set purchase_price = {$purchasePrice} where product_id = {$productId};
+                        ";
+                $query = $this->conn->prepare($sql);
+                $checkUpdate = $query->execute();
+    
+                if($checkUpdate){
+                    $this->productPurchasePriceUpdated = true;
+                }else{
+                    $this->productPurchasePriceUpdated = false;
+                }
+            }
 
     }
 ?>

@@ -5,8 +5,8 @@ Sajt za prodaju parfema
 Verzija 2
 -Prosiriti kontakt formu (URADJENO)
 -Napraviti settings tabelu u kojoj ce biti zapisane boje i reci sa sajta i mogucnost adminu da menja podatke
--Izmena cene proizvoda
--Izmena velicine proizvoda
+-Izmena cene proizvoda (URADJENO)
+-Izmena velicine proizvoda (URADJENO)
 -Opcije isporuke
 -Postaviti linkove ka drustvenim mrezama
 -Napraviti link sa kartice proizvoda ka stranici sa tim proizvodom (???)

@@ -101,6 +101,20 @@
 
         <div class="col-3">
             <?php if($user->checkUserAdmin($user_id) or $user->checkUserBloger($user_id)): ?>
+                <button type="button" class="btn btn-success"><a href="admin.update.product.selling.price.view.php" style="color:white; text-decoration: none;">Prod. cena proizvoda</a></button>
+            <?php endif; ?>
+        </div>  
+
+        <div class="col-3">
+            <?php if($user->checkUserAdmin($user_id) or $user->checkUserBloger($user_id)): ?>
+                <button type="button" class="btn btn-success"><a href="admin.update.product.purchase.price.view.php" style="color:white; text-decoration: none;">Kup. cena proizvoda</a></button>
+            <?php endif; ?>
+        </div>  
+
+        <div class="w-100"></div><br>
+
+        <div class="col-3">
+            <?php if($user->checkUserAdmin($user_id) or $user->checkUserBloger($user_id)): ?>
                 <button type="button" class="btn btn-success"><a href="admin.orders.view.php" style="color:white; text-decoration: none;">Porudžbine</a></button>
             <?php endif; ?>
         </div>
