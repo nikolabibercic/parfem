@@ -7,7 +7,8 @@ Verzija 2
 -Napraviti settings tabelu u kojoj ce biti zapisane boje i reci sa sajta i mogucnost adminu da menja podatke
 -Izmena cene proizvoda (URADJENO)
 -Izmena velicine proizvoda (URADJENO)
--Opcije isporuke
+-Opcije isporuke insert update delete na admin strani (URADJENO)
+-Brojevi za product i delivery price pretvoreni u decimal (URADJENO)
 -Postaviti linkove ka drustvenim mrezama
 -Napraviti link sa kartice proizvoda ka stranici sa tim proizvodom (???)
 

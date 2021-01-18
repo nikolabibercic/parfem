@@ -12,6 +12,10 @@
         public $productQuantityUpdated = null;
         public $productSellingPriceUpdated = null;
         public $productPurchasePriceUpdated = null;
+        public $deliveryMethodInserted = null;
+        public $deliveryMethodDeleted = null;
+        public $deliveryMethodNameUpdated = null;
+        public $deliveryMethodPriceUpdated = null;
 
         public function insertCategory($categoryName){
             $sql = "insert into categories values(null,'{$categoryName}')";
@@ -34,6 +38,18 @@
                 $this->brandInserted = true;
             }else{
                 $this->brandInserted = false;
+            }
+        }
+
+        public function insertDeliveryMethod($deliveryMethodName,$price){
+            $sql = "insert into delivery_methods values(null,'{$deliveryMethodName}',{$price} )";
+            $query = $this->conn->prepare($sql);
+            $checkInsert = $query->execute();
+
+            if($checkInsert){
+                $this->deliveryMethodInserted = true;
+            }else{
+                $this->deliveryMethodInserted = false;
             }
         }
 
@@ -69,9 +85,34 @@
             }
         }
 
+        public function deleteDeliveryMethod($deliveryMethodId){
+            $sql = "
+                    delete from delivery_methods where delivery_method_id = {$deliveryMethodId};
+                    ";
+            $query = $this->conn->prepare($sql);
+            $checkDelete = $query->execute();
+
+            if($checkDelete){
+                $this->deliveryMethodDeleted = true;
+            }else{
+                $this->deliveryMethodDeleted = false;
+            }
+        }
+
         public function selectAllCategories(){
             $sql = "select * 
                     from categories c
+                    ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            return $result;
+        }
+
+        public function selectDeliveryMethods(){
+            $sql = "select * 
+                    from delivery_methods dm
                     ";
 
             $query = $this->conn->prepare($sql);
@@ -167,6 +208,34 @@
                 $this->brandUpdated = true;
             }else{
                 $this->brandUpdated = false;
+            }
+        }
+
+        public function updateDeliveryMethodName($deliveryMethodId,$deliveryMethodNameNew){
+            $sql = "
+                    update delivery_methods set delivery_method = '{$deliveryMethodNameNew}' where delivery_method_id = {$deliveryMethodId};
+                    ";
+            $query = $this->conn->prepare($sql);
+            $checkUpdate = $query->execute();
+
+            if($checkUpdate){
+                $this->deliveryMethodNameUpdated = true;
+            }else{
+                $this->deliveryMethodNameUpdated = false;
+            }
+        }
+
+        public function updateDeliveryMethodPrice($deliveryMethodId,$deliveryMethodPriceNew){
+            $sql = "
+                    update delivery_methods set delivery_price = '{$deliveryMethodPriceNew}' where delivery_method_id = {$deliveryMethodId};
+                    ";
+            $query = $this->conn->prepare($sql);
+            $checkUpdate = $query->execute();
+
+            if($checkUpdate){
+                $this->deliveryMethodPriceUpdated = true;
+            }else{
+                $this->deliveryMethodPriceUpdated = false;
             }
         }
 

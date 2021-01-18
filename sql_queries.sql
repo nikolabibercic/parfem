@@ -44,8 +44,8 @@ CREATE TABLE products(
     name varchar(50) character set utf8 not null unique,
     size int,
     quantity int,
-    purchase_price int not null,
-    selling_price int not null,
+    purchase_price decimal(15,2) not null,
+    selling_price decimal(15,2) not null,
     other_information varchar(50) character set utf8,
     image varchar(50) character set utf8 not null,
 	product_status_id int not null,
@@ -75,8 +75,8 @@ CREATE TABLE cart_items(
     category_id int,
 	category_name varchar(50) character set utf8,
     size int,
-    purchase_price int,
-    selling_price int,
+    purchase_price decimal(15,2),
+    selling_price decimal(15,2),
     other_information varchar(50) character set utf8,
     image varchar(50) character set utf8,
 	cart_item_status_id int not null,
@@ -88,7 +88,6 @@ CREATE TABLE transaction_statuses(
 	transaction_status_id int AUTO_INCREMENT PRIMARY KEY,
 	transaction_status varchar(50) character set utf8 not null
 );
-
 
 CREATE TABLE transactions(
 	transaction_id int AUTO_INCREMENT PRIMARY KEY,
@@ -110,7 +109,8 @@ CREATE TABLE cart_items_transactions(
 
 CREATE TABLE delivery_methods(
 	delivery_method_id int AUTO_INCREMENT PRIMARY KEY,
-	delivery_method varchar(50) character set utf8 not null
+	delivery_method varchar(50) character set utf8 not null,
+	delivery_price decimal(15,2) not null
 );
 
 CREATE TABLE orders(
@@ -163,5 +163,5 @@ insert into brands values(null,'Bulgari');
 insert into users values(null,'Nikola Bibercic','nikolabibercic@gmail.com','123');
 insert into user_roles values(null,1,1);
 
-insert into delivery_methods values(null,'Post Express');
-insert into delivery_methods values(null,'Lično preuzimanje');
+insert into delivery_methods values(null,'Post Express',0);
+insert into delivery_methods values(null,'Lično preuzimanje',200);

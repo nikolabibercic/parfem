@@ -52,9 +52,9 @@
 
                     <input type="number" name="quantity" placeholder="Količina" class="form-control" required><br>
 
-                    <input type="number" name="purchasePrice" placeholder="Kupovna cena" class="form-control" required><br>
+                    <input type="number" name="purchasePrice" step=0.01 placeholder="Kupovna cena" class="form-control" required><br>
 
-                    <input type="number" name="sellingPrice" placeholder="Prodajna cena" class="form-control" required><br>
+                    <input type="number" name="sellingPrice" step=0.01 placeholder="Prodajna cena" class="form-control" required><br>
 
                     <input type="text" name="otherInformation" placeholder="Ostalo" class="form-control" ><br>
 
