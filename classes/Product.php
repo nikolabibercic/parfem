@@ -159,6 +159,30 @@
             return $result;
         }
 
+        public function selectProduct($productId){
+            $sql = "select  p.product_id
+                            ,p.name as product_name
+                            ,p.size
+                            ,p.quantity
+                            ,p.purchase_price
+                            ,p.selling_price
+                            ,p.image
+                            ,c.name as category_name
+                            ,b.name as brand_name
+                    from products p
+                    inner join product_statuses ps on ps.product_status_id = p.product_status_id
+                    inner join categories c on c.category_id = p.category_id
+                    inner join brands b on b.brand_id = p.brand_id
+                    where   p.product_id = {$productId}
+                            and ps.product_status = 'Active';
+                    ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            return $result;
+        }
+
         public function selectTop10Products($this_page_first_result,$results_per_page){
             $sql = "select  p.product_id
                             ,p.name as product_name

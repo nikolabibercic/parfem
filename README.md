@@ -10,7 +10,7 @@ Verzija 2
 -Opcije isporuke insert update delete na admin strani (URADJENO)
 -Brojevi za product i delivery price pretvoreni u decimal (URADJENO)
 -Postaviti linkove ka drustvenim mrezama
--Napraviti link sa kartice proizvoda ka stranici sa tim proizvodom (???)
+-Napraviti link sa kartice proizvoda ka stranici sa tim proizvodom (URADJENO)
 
 
 Verzija 1
