@@ -151,6 +151,13 @@ insert into cart_item_statuses values(null,'Delivered');
 
 insert into transaction_statuses values(null,'Incomplete');
 insert into transaction_statuses values(null,'Complete');
+
+insert into settings values(null,'footer jumbotron color','lightgrey')
+insert into settings values(null,'navbar jumbotron color','red')
+insert into settings values(null,'navbar horizontal line color','red')
+insert into settings values(null,'navbar jumbotron text color','red')
+insert into settings values(null,'footer color','red')
+insert into settings values(null,'footer text color','blue')
 -------------------------------------------------------------------------------------------------
 ---OPCIONI INSERTI
 -------------------------------------------------------------------------------------------------

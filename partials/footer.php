@@ -1,5 +1,7 @@
 
-    <div class="container-fluid" style="background-color: lightgrey;">
+    <?php $footerJumbotronColor = $setting->selectSettingValue(1); ?>
+    
+    <div class="container-fluid" <?php echo 'style="background-color:'.$footerJumbotronColor->setting_value.'; " ' ?> >
         <div class="row">
             <div class="col-12" >
                 <br>
@@ -18,7 +20,11 @@
         </div>
     </div>
 
-    <div class="container-fluid" style="background-color: darkblue; color: white;">
+    <?php 
+        $footerColor = $setting->selectSettingValue(5); 
+        $footerTextColor = $setting->selectSettingValue(6); 
+    ?>
+    <div class="container-fluid" <?php echo 'style="background-color:'.$footerColor->setting_value.'; color:'.$footerTextColor->setting_value.'  " ' ?> >
         <div class="row">
             <div class="col-12 text-center">
                 <div>

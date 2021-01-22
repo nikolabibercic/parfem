@@ -60,6 +60,8 @@
             </div>   
     </nav>
 
-    <hr class="" class="bg-warning" style="background-color: #ffcc00; height:10px; margin:auto;"> 
+    <?php $navbarJumbotronColor = $setting->selectSettingValue(3); ?>
+
+    <hr class="" class="bg-warning" <?php echo 'style="background-color:'.$navbarJumbotronColor->setting_value.'; height:10px; margin:auto; " ' ?> > 
 
 </div>

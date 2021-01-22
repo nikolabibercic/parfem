@@ -14,11 +14,10 @@
     }
 ?>
 
-<div class="jumbotron jumbotron-fluid">
-    <div class="container text-center">
-            <h1 class="display-4">Forma za brisanje kategorije</h1>
-    </div>
-</div>
+<?php
+//Navbar
+ $setting->navbar('Forma za brisanje kategorije');
+?>
 
 <br>
 

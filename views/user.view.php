@@ -21,11 +21,10 @@
     $CartItemsSum = $cart->OrderedDeliveredCartItemsSum($user_id)
 ?>
 
-<div class="jumbotron jumbotron-fluid">
-    <div class="container text-center">
-            <h1 class="display-4">Korisnička stranica</h1>
-    </div>
-</div>
+<?php
+//Navbar
+ $setting->navbar('Korisnička stranica');
+?>
 
 <br>
 

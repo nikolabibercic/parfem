@@ -13,11 +13,10 @@
     }
 ?>
 
-<div class="jumbotron jumbotron-fluid">
-    <div class="container text-center">
-            <h1 class="display-4">Administracija proizvoda</h1>
-    </div>
-</div>
+<?php
+//Navbar
+ $setting->navbar('Administracija proizvoda');
+?>
 
 <br>
 

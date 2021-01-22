@@ -14,11 +14,10 @@
     }
 ?>
 
-<div class="jumbotron jumbotron-fluid">
-    <div class="container text-center">
-            <h1 class="display-4">Forma - izmena kupovne cene proizvoda</h1>
-    </div>
-</div>
+<?php
+//Navbar
+ $setting->navbar('Forma - izmena kupovne cene proizvoda');
+?>
 
 <br>
 

@@ -14,11 +14,11 @@
     }
 ?>
 
-<div class="jumbotron jumbotron-fluid">
-    <div class="container text-center">
-            <h1 class="display-4">Forma za dodelu prava</h1>
-    </div>
-</div>
+
+<?php
+//Navbar
+ $setting->navbar('Forma za dodelu prava');
+?>
 
 <br>
 

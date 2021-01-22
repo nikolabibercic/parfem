@@ -11,11 +11,10 @@
 
 <?php require '../partials/navbar.php'; ?>
 
-<div class="jumbotron jumbotron-fluid">
-    <div class="container text-center">
-            <h1 class="display-4">Prijava</h1>
-    </div>
-</div>
+<?php
+//Navbar
+ $setting->navbar('Prijava');
+?>
 
 <br>
 
@@ -40,5 +39,9 @@
         </div>  
     </div>
 </div>
+<br>
+<br>
+
+<?php require '../partials/carousel.php'; ?>
 
 <?php require '../partials/footer.php'; ?>

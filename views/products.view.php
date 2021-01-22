@@ -29,8 +29,6 @@
 
 <?php require '../partials/index.jumbotron.php'; ?>
 
-<br>
-
 <?php require '../views/products.search.view.php'; ?>
 
 <br>

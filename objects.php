@@ -9,6 +9,7 @@
     require 'classes/Transaction.php';
     require 'classes/Order.php';
     require 'classes/Pagination.php';
+    require 'classes/Setting.php';
 
     $conn = new Connection();
     $user = new User($conn->connect());
@@ -17,4 +18,5 @@
     $tran = new Transaction($conn->connect());
     $order = new Order($conn->connect());
     $pagination = new Pagionation($conn->connect());
+    $setting = new Setting($conn->connect());
 ?>
