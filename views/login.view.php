@@ -23,7 +23,7 @@
         <div class="col-3">
         </div> 
         <div class="col-6">
-            <form action="../files/login.php" method="POST">
+            <form action="../files/login.php" method="POST" autocomplete="on">
                 <div class="form-group">
                     <input type="email" name="email" placeholder="Email" class="form-control" required><br>
                     <input type="password" name="password" autocomplete="on" placeholder="Password" class="form-control" required><br>
