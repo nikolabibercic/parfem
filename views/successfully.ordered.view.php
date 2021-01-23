@@ -52,10 +52,13 @@
         <div class="col-3">
         </div>  
     </div>
-
+    <br>
+    <br>
     <br>
     <br>
 </div>
+
+<?php require '../partials/carousel.php'; ?>
 
 <?php require '../partials/footer.php'; ?>
 

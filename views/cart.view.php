@@ -113,8 +113,11 @@
     <?php endif; ?>
     <br>
     <br>
-
+    <br>
+    <br>
 </div>
+
+<?php require '../partials/carousel.php'; ?>
 
 <?php require '../partials/footer.php'; ?>
 

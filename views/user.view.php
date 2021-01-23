@@ -59,8 +59,12 @@
                 </table>
                 <br>
                 <br>
+                <br>
+                <br>
             </div>  
     </div>
 </div>
+
+<?php require '../partials/carousel.php'; ?>
 
 <?php require '../partials/footer.php'; ?>
