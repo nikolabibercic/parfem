@@ -26,7 +26,7 @@
             <form action="../files/login.php" method="POST">
                 <div class="form-group">
                     <input type="email" name="email" placeholder="Email" class="form-control" required><br>
-                    <input type="password" name="password" placeholder="Password" class="form-control" required><br>
+                    <input type="password" name="password" autocomplete="on" placeholder="Password" class="form-control" required><br>
                 </div>
                 <button type="submit" name="logIn">Prijavi se</button>
                 <br><br>
