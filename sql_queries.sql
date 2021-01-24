@@ -152,12 +152,16 @@ insert into cart_item_statuses values(null,'Delivered');
 insert into transaction_statuses values(null,'Incomplete');
 insert into transaction_statuses values(null,'Complete');
 
-insert into settings values(null,'footer jumbotron color','lightgrey')
-insert into settings values(null,'navbar jumbotron color','red')
-insert into settings values(null,'navbar horizontal line color','red')
-insert into settings values(null,'navbar jumbotron text color','red')
-insert into settings values(null,'footer color','red')
-insert into settings values(null,'footer text color','blue')
+insert into settings values(null,'footer jumbotron background color','#E5E7E9');
+insert into settings values(null,'navbar jumbotron background color','#E5E7E9');
+insert into settings values(null,'navbar horizontal line color','#F1C40F');
+insert into settings values(null,'navbar jumbotron text color','black');
+insert into settings values(null,'footer background color','darkblue');
+insert into settings values(null,'footer text color','white');
+insert into settings values(null,'facebook icon show','true');
+insert into settings values(null,'instagram icon show','true');
+insert into settings values(null,'facebook icon link','/shop/images/siteImages/facebookIcon.png');
+insert into settings values(null,'instagram icon link','/shop/images/siteImages/instagramIcon.png');
 -------------------------------------------------------------------------------------------------
 ---OPCIONI INSERTI
 -------------------------------------------------------------------------------------------------
