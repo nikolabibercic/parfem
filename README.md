@@ -11,6 +11,8 @@ Verzija 2
 -Brojevi za product i delivery price pretvoreni u decimal (URADJENO)
 -Postaviti linkove ka drustvenim mrezama
 -Napraviti link sa kartice proizvoda ka stranici sa tim proizvodom (URADJENO)
+-Setting za Carousel
+-Setting za Logo
 
 
 Verzija 1

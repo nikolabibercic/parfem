@@ -131,8 +131,9 @@ CREATE TABLE orders(
 
 CREATE TABLE settings(
 	setting_id int AUTO_INCREMENT PRIMARY KEY,
-	setting_description varchar(50) character set utf8,
-	setting_value varchar(50) character set utf8
+	setting_description varchar(150) character set utf8,
+	setting_value varchar(150) character set utf8,
+	setting_value_2 varchar(150) character set utf8
 );
 
 -------------------------------------------------------------------------------------------------
@@ -152,16 +153,22 @@ insert into cart_item_statuses values(null,'Delivered');
 insert into transaction_statuses values(null,'Incomplete');
 insert into transaction_statuses values(null,'Complete');
 
-insert into settings values(null,'footer jumbotron background color','#E5E7E9');
-insert into settings values(null,'navbar jumbotron background color','#E5E7E9');
-insert into settings values(null,'navbar horizontal line color','#F1C40F');
-insert into settings values(null,'navbar jumbotron text color','black');
-insert into settings values(null,'footer background color','darkblue');
-insert into settings values(null,'footer text color','white');
-insert into settings values(null,'facebook icon show','true');
-insert into settings values(null,'instagram icon show','true');
-insert into settings values(null,'facebook icon link','/shop/images/siteImages/facebookIcon.png');
-insert into settings values(null,'instagram icon link','/shop/images/siteImages/instagramIcon.png');
+insert into settings values(null,'footer jumbotron background color','#E5E7E9',null);
+insert into settings values(null,'navbar jumbotron background color','#E5E7E9',null);
+insert into settings values(null,'navbar horizontal line color','#F1C40F',null);
+insert into settings values(null,'navbar jumbotron text color','black',null);
+insert into settings values(null,'footer background color','darkblue',null);
+insert into settings values(null,'footer text color','white',null);
+insert into settings values(null,'facebook icon show','true',null);
+insert into settings values(null,'instagram icon show','true',null);
+insert into settings values(null,'facebook icon link','/shop/images/siteImages/facebookIcon.png',null);
+insert into settings values(null,'instagram icon link','/shop/images/siteImages/instagramIcon.png',null);
+insert into settings values(null,'back to top text color','darkblue',null);
+insert into settings values(null,'footer jumbotron link 1 show','true',null);
+insert into settings values(null,'footer jumbotron link 2 show','false',null);
+insert into settings values(null,'footer jumbotron link 1','https://www.freepik.com/photos/people','People photo created by prostooleh - www.freepik.com');
+insert into settings values(null,'footer jumbotron link 2',null,null);
+
 -------------------------------------------------------------------------------------------------
 ---OPCIONI INSERTI
 -------------------------------------------------------------------------------------------------
