@@ -11,9 +11,10 @@ Verzija 2
 -Brojevi za product i delivery price pretvoreni u decimal (URADJENO)
 -Postaviti linkove ka drustvenim mrezama
 -Napraviti link sa kartice proizvoda ka stranici sa tim proizvodom (URADJENO)
--Setting za Carousel
--Setting za Logo
-
+-Setting za Carousel (URADJENO)
+-Setting za slike u Carouselu (URADJENO)
+-Setting za sliku loga (URADJENO)
+-Napraviti AJAX upit koji kupi boju za NAV background, pre toga u settings napraviti ociju za NAV background boju
 
 Verzija 1
 -Napraviti kontakt stranicu sa formom i slanjem mejla sa forme (URADJENO)

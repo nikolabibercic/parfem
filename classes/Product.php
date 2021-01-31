@@ -132,6 +132,22 @@
             return $result;
         }
 
+        public function selectBrandsList($categoryId){
+            $sql = "
+                    select distinct b.brand_id, b.name
+                    from brands b
+                    inner join products p on p.brand_id = b.brand_id
+                    inner join product_statuses ps on ps.product_status_id = p.product_status_id
+                    where (p.category_id = {$categoryId} or $categoryId = 0)
+                    and ps.product_status = 'Active'
+                    ";
+
+            $query = $this->conn->prepare($sql);
+            $query->execute();
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            return $result;
+        }
+
         public function selectAllProducts($search,$categoryId,$brandId,$this_page_first_result,$results_per_page){
             $sql = "select  p.product_id
                             ,p.name as product_name

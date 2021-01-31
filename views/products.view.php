@@ -3,7 +3,12 @@
     
     $search = $_GET['search'];
     $categoryId = $_GET['categoryId'];
-    $brandId = $_GET['brandId'];
+ //   $brandId = $_GET['brandId'];
+    if(isset($_GET['brandId'])){
+        $brandId = $_GET['brandId'];
+    }else{
+        $brandId = 0;
+    }
 
     $number_of_products = $pagination->numberOfProducts($search,$categoryId,$brandId);
     $results_per_page = $pagination->results_per_page;
@@ -79,7 +84,12 @@
 
 </div>
 
-<?php require '../partials/carousel.php'; ?>
+<?php    
+    $carouselShow = $setting->selectSettingValue(16);
+    if($carouselShow[0]->setting_value == 'true'){
+        require '../partials/carousel.php';
+    }
+?>
 
 <?php require '../partials/footer.php'; ?>
 

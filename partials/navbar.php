@@ -1,7 +1,8 @@
 <div class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: darkblue; ">
             <a class="navbar-brand" href="/shop/index.php" style="font-family: 'Dancing Script', cursive;">
-                <img src="/shop/images/siteImages/logo.png" class="card-img-top" alt="" style="height:30px; width:30px;">
+                <?php $logoIconLink = $setting->selectSettingValue(17); ?>
+                <img src=<?php echo $logoIconLink[0]->setting_value ?> class="card-img-top" alt="" style="height:30px; width:30px;">
                 parfem.in.rs
             </a>
             
