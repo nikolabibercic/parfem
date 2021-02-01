@@ -14,7 +14,9 @@ Verzija 2
 -Setting za Carousel (URADJENO)
 -Setting za slike u Carouselu (URADJENO)
 -Setting za sliku loga (URADJENO)
--Napraviti AJAX upit koji kupi boju za NAV background, pre toga u settings napraviti ociju za NAV background boju
+-Napraviti AJAX upit koji kupi boju za NAV background, pre toga u settings napraviti ociju za NAV background boju (URADJENO)
+-Napraviti prevod za reci u settings
+-Napraviti da admin menja podatke u settingsu
 
 Verzija 1
 -Napraviti kontakt stranicu sa formom i slanjem mejla sa forme (URADJENO)

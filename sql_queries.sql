@@ -169,11 +169,14 @@ insert into settings values(null,'footer jumbotron link 2 show','false',null);
 insert into settings values(null,'footer jumbotron link 1','https://www.freepik.com/photos/people','People photo created by prostooleh - www.freepik.com');
 insert into settings values(null,'footer jumbotron link 2',null,null);
 insert into settings values(null,'carousel show','true',null);
-insert into settings values(null,'logo image link','/shop/images/siteImages/logo.png',null);
+insert into settings values(null,'navbar logo image link','/shop/images/siteImages/logo.png',null);
 insert into settings values(null,'carousel image link 1','/shop/images/siteImages/carouselImage1.jpg',null);
 insert into settings values(null,'carousel image link 2','/shop/images/siteImages/carouselImage2.jpg',null);
 insert into settings values(null,'carousel image link 3','/shop/images/siteImages/carouselImage3.jpg',null);
-
+insert into settings values(null,'navbar background color','darkblue',null);
+insert into settings values(null,'navbar onmouse over leave color','darkblue','white');
+insert into settings values(null,'navbar text color','white',null);
+insert into settings values(null,'navbar logo image link show','true',null);
 -------------------------------------------------------------------------------------------------
 ---OPCIONI INSERTI
 -------------------------------------------------------------------------------------------------

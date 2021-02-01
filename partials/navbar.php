@@ -1,8 +1,15 @@
+<?php 
+$navbarTextColor = $setting->selectSettingValue(23);
+$navbarLogoImageLinkShow = $setting->selectSettingValue(24);
+?>
 <div class="sticky-top">
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: darkblue; ">
-            <a class="navbar-brand" href="/shop/index.php" style="font-family: 'Dancing Script', cursive;">
+    <?php $navbarBackgroundColor = $setting->selectSettingValue(21); ?>
+    <nav class="navbar navbar-expand-lg navbar-dark" <?php echo 'style="background-color: '.$navbarBackgroundColor[0]->setting_value.'; " '?> >
+            <a class="navbar-brand" href="/shop/index.php" <?php echo 'style="font-family: Dancing Script, cursive; color:'.$navbarTextColor[0]->setting_value.'; " ' ?>>
                 <?php $logoIconLink = $setting->selectSettingValue(17); ?>
-                <img src=<?php echo $logoIconLink[0]->setting_value ?> class="card-img-top" alt="" style="height:30px; width:30px;">
+                <?php if($navbarLogoImageLinkShow[0]->setting_value=='true'): ?>
+                    <img src=<?php echo $logoIconLink[0]->setting_value ?> class="card-img-top" alt="" style="height:30px; width:30px;">
+                <?php endif; ?>
                 parfem.in.rs
             </a>
             
@@ -23,11 +30,11 @@
                         <?php echo ''; ?>
                     <?php elseif($user->checkUserAdmin($userId) or $user->checkUserBloger($userId)): //ako je admin ili bloger ispisuje opciju Porudzbine ?>
                         <li class="nav-item">
-                            <a href="/shop/views/admin.orders.view.php" class="nav-link" id="navLink1" style="color:white;">Porudzbine</a>
+                            <a href="/shop/views/admin.orders.view.php" class="nav-link" id="navLink1" <?php echo 'style="color: '.$navbarTextColor[0]->setting_value.'; " '?>>Porudzbine</a>
                         </li>
                     <?php elseif(isset($_SESSION['user']) and !$user->checkUserAdmin($userId) and !$user->checkUserBloger($userId)): //ako je ulogovan a nije admin i bloger ispisuje opciju Korpa ?>
                         <li class="nav-item">
-                            <a href="/shop/views/cart.view.php" class="nav-link" id="navLink1" style="color:white;">
+                            <a href="/shop/views/cart.view.php" class="nav-link" id="navLink1" <?php echo 'style="color: '.$navbarTextColor[0]->setting_value.'; " '?>>
                                 <?php
                                     $cartItemsCount = $cart->cartItemsCount($userId);
                                     echo '<b>'.$cartItemsCount[0]->CountItems.'</b> ';
@@ -40,7 +47,7 @@
                     <?php endif; ?>
 
                     <?php if(!isset($userId) or ( isset($userId) and !$user->checkUserAdmin($userId) and !$user->checkUserBloger($userId) ) ): //ako nije ulogovan, ili ako je ulogovan a nije admin ili bloger ima mogucnost da vidi kontakt stranicu ?>
-                        <li class="nav-item"><a href="/shop/views/contact.view.php" class="nav-link" id="navLink6" style="color:white;">Kontakt</a></li>  
+                        <li class="nav-item"><a href="/shop/views/contact.view.php" class="nav-link" id="navLink6" <?php echo 'style="color: '.$navbarTextColor[0]->setting_value.'; " '?>>Kontakt</a></li>  
                     <?php elseif(($user->checkUserAdmin($userId) or $user->checkUserBloger($userId))): //ako je admin ili bloger ne ispisuje nista ?>        
                         <?php echo ''; ?>
                     <?php endif; ?>
@@ -49,15 +56,15 @@
 
                     <?php if(isset($_SESSION['user'])): ?>        
                         <li class="nav-item">
-                            <a href="/shop/views/admin.view.php" class="nav-link" id="navLink2" style="color:white;">
+                            <a href="/shop/views/admin.view.php" class="nav-link" id="navLink2" <?php echo 'style="color: '.$navbarTextColor[0]->setting_value.'; " '?>>
                                 <?php
                                     echo $_SESSION['user']->name;
                                 ?>
                             </a>
                         </li>
-                        <li class="nav-item"><a href="/shop/files/logout.php" class="nav-link" id="navLink3" style="color:white;">Odjava</a></li>
+                        <li class="nav-item"><a href="/shop/files/logout.php" class="nav-link" id="navLink3" <?php echo 'style="color: '.$navbarTextColor[0]->setting_value.'; " '?>>Odjava</a></li>
                     <?php else: ?>
-                        <li class="nav-item" ><a href="/shop/views/login.view.php" class="nav-link" id="navLink4" style="color:white;">Prijava</a></li>    
+                        <li class="nav-item" ><a href="/shop/views/login.view.php" class="nav-link" id="navLink4" <?php echo 'style="color: '.$navbarTextColor[0]->setting_value.'; " '?>>Prijava</a></li>    
                     <?php endif; ?>
                     
                 </ul>

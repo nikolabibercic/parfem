@@ -21,23 +21,7 @@
                     <div id="txtHint"></div>
                     <br>
 
-                    <script>
-                        function showBrands(categoryId) {
-                        var xhttp;
-                        if (categoryId == "") {
-                            document.getElementById("txtHint").innerHTML = "";
-                            return;
-                        }
-                        xhttp = new XMLHttpRequest();
-                        xhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("txtHint").innerHTML = this.responseText;
-                            }
-                        };
-                        xhttp.open("GET", "/shop/files/selectBrandsList.php?categoryId="+categoryId, true);
-                        xhttp.send();
-                        }
-                    </script>
+
                 </div>
 
                 <button type="submit" class="btn btn-primary" name="searchProducts">Traži</button>
