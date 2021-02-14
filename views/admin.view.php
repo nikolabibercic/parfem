@@ -92,6 +92,14 @@
 
         <div class="col-3">
             <?php if($user->checkUserAdmin($user_id)): ?>
+                <button type="button" class="btn btn-danger"><a href="admin.update.settings.view.php" style="color:white; text-decoration: none;">Settings</a></button>
+            <?php endif; ?>
+        </div>   
+
+        <div class="w-100"></div><br>
+
+        <div class="col-3">
+            <?php if($user->checkUserAdmin($user_id)): ?>
                 <button type="button" class="btn btn-warning"><a href="admin.add.role.view.php" style="color:white; text-decoration: none;">Dodela prava</a></button>
             <?php endif; ?>
         </div>

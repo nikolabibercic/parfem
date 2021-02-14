@@ -1,22 +1,24 @@
 # parfemi-prodaja
 Sajt za prodaju parfema
 
+Verzija 1.3
+-Napraviti prevod za reci u settings
 
-Verzija 2
+Verzija 1.2
+-Postaviti linkove ka drustvenim mrezama
 -Prosiriti kontakt formu (URADJENO)
--Napraviti settings tabelu u kojoj ce biti zapisane boje i reci sa sajta i mogucnost adminu da menja podatke
+-Napraviti settings tabelu u kojoj ce biti zapisane boje sa sajta i mogucnost adminu da menja podatke (URADJENO)
 -Izmena cene proizvoda (URADJENO)
 -Izmena velicine proizvoda (URADJENO)
 -Opcije isporuke insert update delete na admin strani (URADJENO)
 -Brojevi za product i delivery price pretvoreni u decimal (URADJENO)
--Postaviti linkove ka drustvenim mrezama
 -Napraviti link sa kartice proizvoda ka stranici sa tim proizvodom (URADJENO)
 -Setting za Carousel (URADJENO)
 -Setting za slike u Carouselu (URADJENO)
 -Setting za sliku loga (URADJENO)
 -Napraviti AJAX upit koji kupi boju za NAV background, pre toga u settings napraviti ociju za NAV background boju (URADJENO)
--Napraviti prevod za reci u settings
--Napraviti da admin menja podatke u settingsu
+-Napraviti da admin menja podatke u settingsu (URADJENO)
+-Napraviti setting opciju za slanje mejla iz kontakt forme (URADJENO)
 
 Verzija 1
 -Napraviti kontakt stranicu sa formom i slanjem mejla sa forme (URADJENO)

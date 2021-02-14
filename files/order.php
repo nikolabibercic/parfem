@@ -42,6 +42,18 @@
         if($tran->checkUpdateUserCartItemStatus){
             $order->insertOrder($maxUserTranId[0]->transaction_id,$userName,$userSurname,$userAddress,$userZipCode,$userCity,$userMunicipality,$phone,$deliveryMethodId); //u tabelu orders insertujem podatke o posiljci i transakciji
 
+            //Slanje mejla o porudzbini
+            $from = $setting->selectSettingValue(25);
+            $to = $setting->selectSettingValue(26);
+
+            $from = $from[0]->setting_value;
+            $to = $to[0]->setting_value;
+            $subject = 'Porudzbina od korisnika: '.$userName.' '.$userSurname;
+            $message = $maxUserTranId[0]->transaction_id.'<br>'.$userName.'<br>'.$userSurname.'<br>'.$userAddress.'<br>'.$userZipCode.'<br>'.$userCity.'<br>'.$userMunicipality.'<br>'.$phone.'<br>'.$deliveryMethodId;
+            $header = 'FROM: '.$from;
+
+            mail($to,$subject,$message,$header);
+
             header("Location: ../views/successfully.ordered.view.php?orderInserted={$order->orderInserted}");
         }
     }

@@ -161,8 +161,8 @@ insert into settings values(null,'footer background color','darkblue',null);
 insert into settings values(null,'footer text color','white',null);
 insert into settings values(null,'facebook icon show','true',null);
 insert into settings values(null,'instagram icon show','true',null);
-insert into settings values(null,'facebook icon link','/shop/images/siteImages/facebookIcon.png',null);
-insert into settings values(null,'instagram icon link','/shop/images/siteImages/instagramIcon.png',null);
+insert into settings values(null,'icon facebook link','/shop/images/siteImages/facebookIcon.png',null);
+insert into settings values(null,'icon instagram link','/shop/images/siteImages/instagramIcon.png',null);
 insert into settings values(null,'back to top text color','darkblue',null);
 insert into settings values(null,'footer jumbotron link 1 show','true',null);
 insert into settings values(null,'footer jumbotron link 2 show','false',null);
@@ -177,6 +177,8 @@ insert into settings values(null,'navbar background color','darkblue',null);
 insert into settings values(null,'navbar onmouse over leave color','darkblue','white');
 insert into settings values(null,'navbar text color','white',null);
 insert into settings values(null,'navbar logo image link show','true',null);
+insert into settings values(null,'email FROM','office@parfem.in.rs',null);
+insert into settings values(null,'email TO','nikolabibercic@gmail.com',null);
 -------------------------------------------------------------------------------------------------
 ---OPCIONI INSERTI
 -------------------------------------------------------------------------------------------------
