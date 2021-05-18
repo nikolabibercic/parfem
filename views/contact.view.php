@@ -47,11 +47,4 @@
 <br>
 <br>
 
-<?php    
-    $carouselShow = $setting->selectSettingValue(16);
-    if($carouselShow[0]->setting_value == 'true'){
-        require '../partials/carousel.php';
-    }
-?>
-
 <?php require '../partials/footer.php'; ?>
